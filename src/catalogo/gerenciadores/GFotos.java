@@ -1,0 +1,19 @@
+package catalogo.gerenciadores;
+
+import catalogo.midias.Foto;
+
+public class GFotos extends GerenciadorDeMidias {
+
+	private Foto foto;
+
+    @Override
+    public void ordenar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean carregarArquivo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+}
