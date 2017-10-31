@@ -1,6 +1,6 @@
 package catalogo.gerenciadores;
 
-public class GEBook extends GerenciadorDeMidias {
+public abstract class GEBook extends GerenciadorDeMidias {
 
     @Override
     public void ordenar() {

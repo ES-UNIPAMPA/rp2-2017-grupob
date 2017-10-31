@@ -27,14 +27,7 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
         return null;
     }
 
-    @Override
-    public boolean editar(String titulo) {
-        return false;
-    }
 
-    @Override
-    public boolean salvarArquivo() {
-        return false;
-    }
+
 
 }
