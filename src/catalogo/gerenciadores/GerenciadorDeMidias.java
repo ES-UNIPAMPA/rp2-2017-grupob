@@ -7,8 +7,15 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
 
     private List midias;
 
+    public GerenciadorDeMidias(List midias) {
+        this.midias = midias;
+    }
+
     @Override
     public boolean cadastrar(Midia midia) {
+        if (midia != null) {
+            return midias.add(midia);
+        }
         return false;
     }
 
@@ -26,8 +33,5 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
     public String exibir() {
         return null;
     }
-
-
-
 
 }
