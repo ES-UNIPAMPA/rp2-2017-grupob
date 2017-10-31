@@ -23,7 +23,7 @@ public interface IGerenciador {
 
     public abstract void ordenar();
 
-    public boolean editar(String titulo);
+    public boolean editar(String titulo, Midia midia);
 
     public boolean salvarArquivo();
 

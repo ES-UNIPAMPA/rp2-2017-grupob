@@ -1,29 +1,34 @@
 package catalogo.gerenciadores;
 
-import catalogo.midias.Foto;
+import java.util.List;
+import catalogo.midias.Midia;
 
 public class GFotos extends GerenciadorDeMidias {
 
-	private Foto foto;
+    public List<Midia> midias;
+    
+    public GFotos(List midias) {
+        super(midias);
+    }
 
     @Override
     public void ordenar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public boolean carregarArquivo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean salvarArquivo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
-    public boolean editar(String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean editar(String titulo, Midia midia) {
+        return true;
     }
-
+    
 }
