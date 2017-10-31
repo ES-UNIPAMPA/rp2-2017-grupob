@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class GerenciadorDeMidias implements IGerenciador {
 
-    private List midias;
+    private List<Midia> midias;
 
     public GerenciadorDeMidias(List midias) {
         this.midias = midias;
@@ -26,6 +26,14 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
 
     @Override
     public Midia consultar(String titulo) {
+        Midia aux;
+        if (midias != null) {
+            for(Midia midia : midias){
+                if (midia.getTitulo().equals(titulo)) {
+                    return midia;
+                }
+            }
+        }
         return null;
     }
 
@@ -33,5 +41,4 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
     public String exibir() {
         return null;
     }
-
 }
