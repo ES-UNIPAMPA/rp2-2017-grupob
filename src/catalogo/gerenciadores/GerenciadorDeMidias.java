@@ -21,6 +21,12 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
 
     @Override
     public boolean remover(String path) {
+        for (Midia midia : midias) {
+            if(midia.getPath().equals(path)){
+                return midias.remove(midia);
+                
+            }
+        }
         return false;
     }
 
