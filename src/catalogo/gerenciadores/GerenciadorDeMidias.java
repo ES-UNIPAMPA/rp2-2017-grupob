@@ -52,7 +52,7 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
     public boolean editar(Midia velho, Midia midia) {
         for (int i = 0; i < midias.size(); i++) {
             if (velho == midias.get(i)) {
-                midias.set(i, velho);
+                midias.set(i, midia);
                 return true;
             }
         }
