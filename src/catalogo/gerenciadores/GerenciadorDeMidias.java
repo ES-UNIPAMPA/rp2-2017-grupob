@@ -22,9 +22,9 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
     @Override
     public boolean remover(String path) {
         for (Midia midia : midias) {
-            if(midia.getPath().equals(path)){
+            if (midia.getPath().equals(path)) {
                 return midias.remove(midia);
-                
+
             }
         }
         return false;
@@ -34,7 +34,7 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
     public Midia consultar(String titulo) {
         Midia aux;
         if (midias != null) {
-            for(Midia midia : midias){
+            for (Midia midia : midias) {
                 if (midia.getTitulo().equals(titulo)) {
                     return midia;
                 }
@@ -46,5 +46,16 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
     @Override
     public String exibir() {
         return null;
+    }
+
+    @Override
+    public boolean editar(Midia velho, Midia midia) {
+        for (int i = 0; i < midias.size(); i++) {
+            if (velho == midias.get(i)) {
+                midias.set(i, velho);
+                return true;
+            }
+        }
+        return false;
     }
 }

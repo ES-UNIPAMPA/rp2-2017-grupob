@@ -24,13 +24,6 @@ public class GMusicas extends GerenciadorDeMidias {
         return true;
     }
 
-    @Override
-    public boolean editar(String titulo, Midia m) {
-        if (m != null) {
-            for (Midia midia : midias) {
-                //IMPLEMENTAR
-            }
-        }
-    }
+
 
 }

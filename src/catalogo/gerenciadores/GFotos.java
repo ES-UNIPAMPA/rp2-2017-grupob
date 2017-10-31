@@ -4,8 +4,6 @@ import java.util.List;
 import catalogo.midias.Midia;
 
 public class GFotos extends GerenciadorDeMidias {
-
-    public List<Midia> midias;
     
     public GFotos(List midias) {
         super(midias);
@@ -26,9 +24,6 @@ public class GFotos extends GerenciadorDeMidias {
         return true;
     }
 
-    @Override
-    public boolean editar(String titulo, Midia midia) {
-        return true;
-    }
+
     
 }
