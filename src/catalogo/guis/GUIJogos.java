@@ -1,5 +1,5 @@
 package catalogo.guis;
 
-public class GUIJogos implements IMidiaUsuario{
+public class GUIJOgos implements IMidiaUsuario{
 
 }
