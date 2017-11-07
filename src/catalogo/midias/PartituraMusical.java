@@ -6,12 +6,14 @@ public class PartituraMusical extends Midia {
 	private String instrumentos;
 	private int ano;
 
-    public PartituraMusical(String genero, String autores, String instrumentos, int ano) {
+    public PartituraMusical(String genero, String autores, String instrumentos, int ano, String titulo, String descricao, String path) {
+        super(titulo, descricao, path);
         this.genero = genero;
         this.autores = autores;
         this.instrumentos = instrumentos;
         this.ano = ano;
     }
+
 
     public String getGenero() {
         return genero;

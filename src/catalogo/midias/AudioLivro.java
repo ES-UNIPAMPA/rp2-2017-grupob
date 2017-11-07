@@ -2,16 +2,16 @@ package catalogo.midias;
 
 
 public class AudioLivro extends Midia {
-	private int genero;
+	private String genero;
 	private String idioma;
 	private String autores;
 	private String local;
 	private String editora;
-	private int duracao;
+	private float duracao;
 	private int ano;
-	private Midia midia;
 
-    public AudioLivro(int genero, String idioma, String autores, String local, String editora, int duracao, int ano, Midia midia) {
+    public AudioLivro(String genero, String idioma, String autores, String local, String editora, float duracao, int ano, String titulo, String descricao, String path) {
+        super(titulo, descricao, path);
         this.genero = genero;
         this.idioma = idioma;
         this.autores = autores;
@@ -19,14 +19,17 @@ public class AudioLivro extends Midia {
         this.editora = editora;
         this.duracao = duracao;
         this.ano = ano;
-        this.midia = midia;
+        
     }
 
-    public int getGenero() {
+
+        
+        
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(int genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 
@@ -62,7 +65,7 @@ public class AudioLivro extends Midia {
         this.editora = editora;
     }
 
-    public int getDuracao() {
+    public float getDuracao() {
         return duracao;
     }
 

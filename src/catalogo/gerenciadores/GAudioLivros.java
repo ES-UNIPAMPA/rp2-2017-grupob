@@ -1,6 +1,12 @@
 package catalogo.gerenciadores;
 
+import java.util.List;
+
 public class GAudioLivros extends GerenciadorDeMidias {
+
+    public GAudioLivros(List midias) {
+        super(midias);
+    }
 
     @Override
     public void ordenar() {
