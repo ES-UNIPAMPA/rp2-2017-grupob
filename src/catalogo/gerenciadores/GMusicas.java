@@ -1,6 +1,5 @@
 package catalogo.gerenciadores;
 
-import catalogo.midias.Midia;
 import java.util.List;
 
 public class GMusicas extends GerenciadorDeMidias {
@@ -8,10 +7,11 @@ public class GMusicas extends GerenciadorDeMidias {
     public GMusicas(List midias) {
         super(midias);
     }
-
+    
+    //COMORTAMENTOS E MÉTODOS
     @Override
     public void ordenar() {
-        //IMPLEMENTAR
+        
     }
 
     @Override

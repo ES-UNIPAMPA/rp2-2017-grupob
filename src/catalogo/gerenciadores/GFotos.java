@@ -1,14 +1,14 @@
 package catalogo.gerenciadores;
 
 import java.util.List;
-import catalogo.midias.Midia;
 
 public class GFotos extends GerenciadorDeMidias {
     
     public GFotos(List midias) {
         super(midias);
     }
-
+    
+    //COMORTAMENTOS E MÉTODOS
     @Override
     public void ordenar() {
         
