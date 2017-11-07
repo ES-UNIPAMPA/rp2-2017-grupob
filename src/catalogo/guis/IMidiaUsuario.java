@@ -8,7 +8,7 @@ public interface IMidiaUsuario {
 
 	public abstract void consulta();
 
-	public abstract void exibirDadosMidia();
+	public abstract void exibirDadosTodasMidias();
 
 	public abstract void editar();
 
