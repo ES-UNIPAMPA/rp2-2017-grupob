@@ -44,16 +44,15 @@ public class GUIAudioLivros implements IMidiaUsuario {
 
     @Override
     public void exclusao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String caminho;
+        System.out.println("Digite o caminho do AudioLivro a ser excluido: ");
+        caminho = entrada.next();
+        gerenciador.remover(caminho);
+
     }
 
     @Override
     public void consulta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void exibirDadosMidia() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -69,6 +68,11 @@ public class GUIAudioLivros implements IMidiaUsuario {
 
     @Override
     public void carregar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void exibirDadosTodasMidias() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
