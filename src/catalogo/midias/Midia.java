@@ -6,6 +6,13 @@ public class Midia {
     private String descricao;
     private String path;
 
+    public Midia(String titulo, String descricao, String path) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.path = path;
+    }
+
+    
     @Override
     public String toString() {
             return null;

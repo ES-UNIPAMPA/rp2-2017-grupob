@@ -58,4 +58,7 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
         }
         return false;
     }
+    protected List getMidias(){
+        return midias;
+    }
 }
