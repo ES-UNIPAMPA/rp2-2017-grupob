@@ -9,7 +9,8 @@ public class Musica extends Midia {
     private int duracao;
     private int ano;
 
-    public Musica(String genero, String idioma, String autores, String interpretes, int duracao, int ano) {
+    public Musica(String titulo, String descricao, String path, String genero, String idioma, String autores, String interpretes, int duracao, int ano) {
+        super(titulo, descricao,path);
         this.genero = genero;
         this.idioma = idioma;
         this.autores = autores;

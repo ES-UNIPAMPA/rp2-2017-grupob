@@ -1,10 +1,8 @@
 package catalogo.midias;
 
-import catalogo.gerenciadores.GFotos;
 import java.util.Calendar;
-import java.util.List;
 
-public class Foto {
+public class Foto extends Midia{
 
     private String fotografo;
     private String pessoas;
@@ -12,7 +10,8 @@ public class Foto {
     private Calendar data;
     private Calendar hora;
 
-    public Foto(String fotografo, String pessoas, String local, Calendar data, Calendar hora) {
+    public Foto(String titulo, String descricao, String path, String fotografo, String pessoas, String local, Calendar data, Calendar hora) {
+        super(titulo, descricao,path);
         this.fotografo = fotografo;
         this.pessoas = pessoas;
         this.local = local;

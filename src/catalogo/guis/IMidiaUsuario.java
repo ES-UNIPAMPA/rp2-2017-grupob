@@ -11,6 +11,8 @@ public interface IMidiaUsuario {
 	public abstract void exibirDadosTodasMidias();
 
 	public abstract void editar();
+        
+	public abstract void ordenar();
 
 	public abstract void salvar();
 
