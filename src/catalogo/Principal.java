@@ -9,8 +9,12 @@ public class Principal {
     
     public static void main(String[] args) {
         //Linha abaixo apenas para teste
-        guiMusica.cadastro();
-        guiFotos.cadastro();
+        try{
+            guiFotos.cadastro();
+            guiMusica.cadastro();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
 }

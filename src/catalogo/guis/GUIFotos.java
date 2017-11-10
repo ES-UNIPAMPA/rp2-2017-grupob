@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class GUIFotos implements IMidiaUsuario{
     private Scanner scanner = new Scanner(System.in);
-    private GFotos gFotos;
+    private GFotos gFotos = new GFotos();
 
     @Override
     public void cadastro() {

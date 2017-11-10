@@ -46,7 +46,7 @@ public class GFotos extends GerenciadorDeMidias {
             log = new FileHandler("log.txt");
             logger.warning("Nome do arquivo não pode ser null.");
             
-            InputStream nomeArquivo = new FileInputStream("C:\\Users\\MICHAEL MARTINS\\Desktop\\Gerenciadores\\"+path+".txt");
+            InputStream nomeArquivo = new FileInputStream("C:\\Users\\" + System.getProperty("user.name") +"\\Desktop\\Gerenciadores\\"+path+".txt");
             InputStreamReader reader = new InputStreamReader(nomeArquivo);
             BufferedReader bufferedReader = new BufferedReader(reader);
             
@@ -67,32 +67,38 @@ public class GFotos extends GerenciadorDeMidias {
     @Override
     public boolean salvarArquivo(String path, Midia midia) {
         Foto aux = (Foto) midia;
-        try{
-            //O arquivo será salvo na pasta Gerenciadores em Desktop
-            OutputStream OS = new FileOutputStream("C:\\Users\\MICHAEL MARTINS\\Desktop\\Gerenciadores\\"+path+".txt");
-            OutputStreamWriter OSW = new OutputStreamWriter(OS);
-            BufferedWriter BW = new BufferedWriter(OSW);
+        if (aux != null) {
             
-            BW.write("Linha 1: " + "Nome do Arquivo : "+ aux.getPath());
-            BW.write("Linha 2: " + "Titulo : "+ aux.getTitulo());
-            BW.write("Linha 3: " + "Descrição : "+ aux.getDescricao());
-            BW.write("Linha 4: " + "Fotografo : "+ aux.getFotografo());
-            BW.write("Linha 5: " + "Pessoas : "+ aux.getPessoas());
-            BW.write("Linha 6: " + "Local : "+ aux.getLocal());
-            BW.write("Linha 7: " + "Data : "+ aux.getData());
-            BW.write("Linha 8: " + "Hora : "+ aux.getLocal());
-            BW.write("\n");
-            
-            BW.close();
-            OSW.close();
-            OS.close();
-            return true;
-            
-        }catch(FileNotFoundException e){
-            e.getStackTrace();
-            return false;
-        }catch(IOException ex){
-            ex.getStackTrace();
+            try{
+                //O arquivo será salvo na pasta Gerenciadores em Desktop
+                OutputStream OS = new FileOutputStream("C:\\Users\\" + System.getProperty("user.name") +"\\Desktop\\Gerenciadores\\"+path+".txt");
+                OutputStreamWriter OSW = new OutputStreamWriter(OS);
+                BufferedWriter BW = new BufferedWriter(OSW);
+
+                BW.write("Linha 1: " + "Nome do Arquivo : "+ aux.getPath());
+                BW.write("Linha 2: " + "Titulo : "+ aux.getTitulo());
+                BW.write("Linha 3: " + "Descrição : "+ aux.getDescricao());
+                BW.write("Linha 4: " + "Fotografo : "+ aux.getFotografo());
+                BW.write("Linha 5: " + "Pessoas : "+ aux.getPessoas());
+                BW.write("Linha 6: " + "Local : "+ aux.getLocal());
+                BW.write("Linha 7: " + "Data : "+ aux.getData());
+                BW.write("Linha 8: " + "Hora : "+ aux.getLocal());
+                BW.write("\n");
+
+                BW.close();
+                OSW.close();
+                OS.close();
+                return true;
+
+            }catch(FileNotFoundException e){
+                e.getStackTrace();
+                return false;
+            }catch(IOException ex){
+                ex.getStackTrace();
+                return false;
+            }
+        }else{
+            System.out.println("Foto null!");
             return false;
         }
     }
