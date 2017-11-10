@@ -59,7 +59,10 @@ public class Foto extends Midia{
     public void setHora(Calendar hora) {
         this.hora = hora;
     }
-        
-        
+
+    @Override
+    public String toString() {
+        return "Foto{" + "fotografo=" + fotografo + ", pessoas=" + pessoas + ", local=" + local + ", data=" + data + ", hora=" + hora + '}';
+    }    
 
 }

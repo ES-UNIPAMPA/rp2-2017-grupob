@@ -25,8 +25,8 @@ public interface IGerenciador {
 
     public boolean editar(Midia velho, Midia midia);
 
-    public boolean salvarArquivo();
+    public boolean salvarArquivo(String path, Midia midia);
 
-    public abstract boolean carregarArquivo();
+    public abstract boolean carregarArquivo(String path);
 
 }
