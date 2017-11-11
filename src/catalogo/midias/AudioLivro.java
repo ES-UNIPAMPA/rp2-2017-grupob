@@ -7,10 +7,10 @@ public class AudioLivro extends Midia {
 	private String autores;
 	private String local;
 	private String editora;
-	private float duracao;
+	private double duracao;
 	private int ano;
 
-    public AudioLivro(String genero, String idioma, String autores, String local, String editora, float duracao, int ano, String titulo, String descricao, String path) {
+    public AudioLivro(String genero, String idioma, String autores, String local, String editora, double duracao, int ano, String titulo, String descricao, String path) {
         super(titulo, descricao, path);
         this.genero = genero;
         this.idioma = idioma;
@@ -65,7 +65,7 @@ public class AudioLivro extends Midia {
         this.editora = editora;
     }
 
-    public float getDuracao() {
+    public double getDuracao() {
         return duracao;
     }
 
@@ -80,13 +80,4 @@ public class AudioLivro extends Midia {
     public void setAno(int ano) {
         this.ano = ano;
     }
-
-    public Midia getMidia() {
-        return midia;
-    }
-
-    public void setMidia(Midia midia) {
-        this.midia = midia;
-    }
-
 }
