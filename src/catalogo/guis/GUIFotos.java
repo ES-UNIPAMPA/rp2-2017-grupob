@@ -38,14 +38,34 @@ public class GUIFotos implements IMidiaUsuario{
 
     @Override
     public void exclusao() {
+        String temp;
+        System.out.println("Informe o caminho do arquivo que deseja remover: ");
+        temp = scanner.nextLine();
+        if (gFotos.remover(temp)) {
+            System.out.println("Removido com sucesso.");
+        }else{
+            System.out.println("Falha ao remover esta midia.");
+        }
+        
     }
 
     @Override
     public void consulta() {
+        String temp;
+        System.out.println("Infome o titulo da midia: "); temp = scanner.nextLine();
+        Midia aux = gFotos.consultar(temp);
+        if (aux != null) {
+            System.out.println(aux.toString());
+        }else{
+            System.out.println("Midia nao encontrada.");
+        }
     }
 
     @Override
     public void exibirDadosTodasMidias() {
+        if (gFotos != null) {
+            System.out.println("Midias: " + gFotos.toString());
+        }
     }
 
     @Override

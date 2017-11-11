@@ -68,6 +68,11 @@ public class Musica extends Midia {
     public void setAno(int ano) {
         this.ano = ano;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Musica{" + "genero=" + genero + ", idioma=" + idioma + ", autores=" + autores + ", interpretes=" + interpretes + ", duracao=" + duracao + ", ano=" + ano + '}';
+    }
     
     
 
