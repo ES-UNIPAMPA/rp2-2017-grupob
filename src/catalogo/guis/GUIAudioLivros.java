@@ -4,18 +4,53 @@ import catalogo.EntradasDoUsuarioComValidacao;
 import catalogo.gerenciadores.GAudioLivros;
 import catalogo.gerenciadores.IGerenciador;
 import catalogo.midias.AudioLivro;
+import catalogo.midias.Midia;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class GUIAudioLivros implements IMidiaUsuario {
 
     IGerenciador gerenciador = new GAudioLivros(new ArrayList<>());
     EntradasDoUsuarioComValidacao entrada = new EntradasDoUsuarioComValidacao();
-
+    
+public void menu() {
+        boolean ficar = true;
+        do {
+            System.out.print("O que você deseja?");
+            System.out.println("1- Cadastrar um AudioLivro");
+            System.out.println("2- Excluir um AudioLivro");
+            System.out.println("3- Consultar um AudioLivro");
+            System.out.println("4- Exibir todos os AudioLivros");
+            System.out.println("5- Editar um AudioLivro");
+            System.out.println("6 -Sair");
+            int escolhaUsuario = entrada.nextInt(false);
+            switch (escolhaUsuario) {
+                case 1:
+                    cadastro();
+                    break;
+                case 2:
+                    exclusao();
+                    break;
+                case 3:
+                    consulta();
+                    break;
+                case 4:
+                    exibirDadosTodasMidias();
+                    break;
+                case 5:
+                    editar();
+                    break;
+                case 6:
+                    ficar = false;
+                    break;
+                default:
+                    System.out.println("Tente Novamente");
+            }
+        } while (ficar);
+    }
     @Override
     public void cadastro() {
 //String genero, String idioma, String autores, String local, String editora, int duracao, int ano, String titulo, String descricao, String path
-        String genero, idioma, autores, local, editora, titulo, descricao;
+        String genero, idioma, autores, local, editora, titulo, descricao, path;
         int ano;
         float duracao;
 
@@ -38,8 +73,10 @@ public class GUIAudioLivros implements IMidiaUsuario {
         titulo = entrada.nextString();
         System.out.println("Descrição do AudioLivro: ");
         descricao = entrada.nextString();
+        System.out.println("Digite o caminho do arquivo");
+        path = entrada.nextString();
 
-        midia = new AudioLivro(genero, idioma, autores, local, editora, duracao, ano, titulo, descricao, local);
+        midia = new AudioLivro(genero, idioma, autores, local, editora, duracao, ano, titulo, descricao, path);
         gerenciador.cadastrar(midia);
     }
 
@@ -54,16 +91,20 @@ public class GUIAudioLivros implements IMidiaUsuario {
 
     @Override
     public void consulta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Digite o titulo do AudioLivro a ser excluido");
+        String titulo = entrada.nextString();
+        Midia m = gerenciador.consultar(titulo);
+        System.out.println("Dados do AudioLivro:\n" + m.toString());
     }
 
     @Override
     public void editar() {
-        String genero, idioma, autores, local, editora, titulo, descricao;
+        String genero, idioma, autores, local, editora, titulo, descricao, path;
         int ano;
         double duracao;
-        //pede o audiolivro pro usuario
-        AudioLivro velho = gerenciador.consultar(titulo);
+        System.out.println("Digite o título do AudioLivro desejado para a edição");
+        titulo = entrada.nextString();
+        AudioLivro velho = (AudioLivro)gerenciador.consultar(titulo);
         AudioLivro novo;
 
         System.out.println("Novo genero do AudioLivro: ");
@@ -119,7 +160,15 @@ public class GUIAudioLivros implements IMidiaUsuario {
         if(descricao.equals("")){
             titulo = velho.getDescricao();
         }
-
+        
+        System.out.println("Digite o caminho do arquivo");
+        path = entrada.nextString();
+        if(path.equals("")){
+            path = velho.getPath();
+        }
+       //genero, idioma, autores, local, editora, duracao, ano,titulo, descricao, path
+        novo = new AudioLivro(genero, idioma, autores, local, editora, duracao, ano, titulo, descricao, path);
+        gerenciador.editar(velho, novo);
     }
 
     @Override
@@ -134,6 +183,11 @@ public class GUIAudioLivros implements IMidiaUsuario {
 
     @Override
     public void exibirDadosTodasMidias() {
+        System.out.println("Dados de todos os AudioLivros" + gerenciador.exibir());
+    }
+
+    @Override
+    public void ordenar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
