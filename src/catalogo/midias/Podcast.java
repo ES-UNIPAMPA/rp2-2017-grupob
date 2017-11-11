@@ -15,6 +15,11 @@ public class Podcast extends Midia {
         this.ano = ano;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + ", idioma=" + idioma + ", autores=" + autores + ", ano=" + ano;
+    }
+
 
 
     /**

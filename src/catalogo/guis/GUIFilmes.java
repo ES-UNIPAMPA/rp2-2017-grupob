@@ -20,6 +20,7 @@ public class GUIFilmes implements IMidiaUsuario {
     public static GUIFilmes getInstance() {
         return ME;
     }
+
     public void menu() {
         boolean ficar = true;
         do {
@@ -55,6 +56,7 @@ public class GUIFilmes implements IMidiaUsuario {
             }
         } while (ficar);
     }
+
     //esse
     @Override
     public void cadastro() {
@@ -71,7 +73,7 @@ public class GUIFilmes implements IMidiaUsuario {
         String genero = es.nextString();
         System.out.println("Digite os nomes dos atores do Filme, separado por ponto e virgula[;]");
         String atoresPrincipais = es.nextString();
-        System.out.println("Digite o nome do diretor do arquivo");
+        System.out.println("Digite o nome do diretor do Filme");
         String diretor = es.nextString();
         System.out.println("Digite o idioma do Filme");
         String idioma = es.nextString();
@@ -103,7 +105,11 @@ public class GUIFilmes implements IMidiaUsuario {
         System.out.println("Digite o titulo do filme");
         String titulo = es.nextString();
         Midia m = gerenciador.consultar(titulo);
-        System.out.println("Dados do filme:\n" + m.toString());
+        if (m != null) {
+            System.out.println("Dados do filme:\n" + m.toString());
+        } else {
+            System.out.println("Filme inexistente");
+        }
     }
 
     //esse
@@ -124,54 +130,57 @@ public class GUIFilmes implements IMidiaUsuario {
             System.out.println("o filmes informada não é um Filme");
             return;
         }
+        if (velho != null) {
+            Filme novo;
+            System.out.println("Digite o novo titulo do Filme [tecle ENTER sem digitar nada para pular]");
+            String titulo = es.nextString();
+            if (titulo.equals("")) {
+                titulo = velho.getTitulo();
+            }
+            System.out.println("Digite o novo caminho do arquivo [tecle ENTER sem digitar nada para pular]");
+            String path = es.nextString();
+            if (path.equals("")) {
+                path = velho.getPath();
+            }
+            System.out.println("Digite a nova descrição do arquivo [tecle ENTER sem digitar nada para pular]");
+            String descricao = es.nextString();
+            if (descricao.equals("")) {
+                descricao = velho.getDescricao();
+            }
+            System.out.println("Digite o novo ano do Filme");
+            int ano = es.nextInt(true);
+            if (ano == Integer.MIN_VALUE) {
+                ano = velho.getAno();
+            }
+            System.out.println("Digite o novo genero do Filme [tecle ENTER sem digitar nada para pular]");
+            String genero = es.nextString();
+            if (genero.equals("")) {
+                genero = velho.getGenero();
+            }
+            System.out.println("Digite os novos atores do Filme, separado por ponto e virgula[;] [tecle ENTER sem digitar nada para pular]");
+            String atoresPrincipais = es.nextString();
+            if (atoresPrincipais.equals("")) {
+                atoresPrincipais = velho.getAtoresPrincipais();
+            }
+            System.out.println("Digite o novo diretor do Filme [tecle ENTER sem digitar nada para pular]");
+            String diretor = es.nextString();
+            if (diretor.equals("")) {
+                diretor = velho.getDiretor();
+            }
+            System.out.println("Digite o novo idioma do Filme [tecle ENTER sem digitar nada para pular]");
+            String idioma = es.nextString();
+            if (idioma.equals("")) {
+                idioma = velho.getIdioma();
+            }
 
-        Filme novo;
-        System.out.println("Digite o novo titulo do Filme [tecle ENTER sem digitar nada para pular]");
-        String titulo = es.nextString();
-        if (titulo.equals("")) {
-            titulo = velho.getTitulo();
-        }
-        System.out.println("Digite o novo caminho do arquivo [tecle ENTER sem digitar nada para pular]");
-        String path = es.nextString();
-        if (path.equals("")) {
-            path = velho.getPath();
-        }
-        System.out.println("Digite a nova descrição do arquivo [tecle ENTER sem digitar nada para pular]");
-        String descricao = es.nextString();
-        if (descricao.equals("")) {
-            descricao = velho.getDescricao();
-        }
-        System.out.println("Digite o novo ano do Filme");
-        int ano = es.nextInt(true);
-        if (ano == Integer.MIN_VALUE) {
-            ano = velho.getAno();
-        }
-        System.out.println("Digite o novo genero do Filme [tecle ENTER sem digitar nada para pular]");
-        String genero = es.nextString();
-        if (genero.equals("")) {
-            genero = velho.getGenero();
-        }
-        System.out.println("Digite os novos atores do Filme, separado por ponto e virgula[;] [tecle ENTER sem digitar nada para pular]");
-        String atoresPrincipais = es.nextString();
-        if (atoresPrincipais.equals("")) {
-            atoresPrincipais = velho.getAtoresPrincipais();
-        }
-        System.out.println("Digite o novo diretor do Filme [tecle ENTER sem digitar nada para pular]");
-        String diretor = es.nextString();
-        if (diretor.equals("")) {
-            diretor = velho.getDiretor();
-        }
-        System.out.println("Digite o novo idioma do Filme [tecle ENTER sem digitar nada para pular]");
-        String idioma = es.nextString();
-        if (idioma.equals("")) {
-            idioma = velho.getIdioma();
-        }
-
-        novo = new Filme(genero, idioma, diretor, atoresPrincipais, ano, titulo, descricao, path);
-        if (gerenciador.editar(velho, novo)) {
-            System.out.println("Filme editado com sucesso");
+            novo = new Filme(genero, idioma, diretor, atoresPrincipais, ano, titulo, descricao, path);
+            if (gerenciador.editar(velho, novo)) {
+                System.out.println("Filme editado com sucesso");
+            } else {
+                System.out.println("Erro ao editar o FIlme");
+            }
         } else {
-            System.out.println("Erro ao editar o FIlme");
+            System.out.println("Filme inexistente");
         }
     }
 

@@ -22,7 +22,8 @@ public class GUIPodcast implements IMidiaUsuario {
     public static GUIPodcast getInstance() {
         return ME;
     }
-        public void menu() {
+
+    public void menu() {
         boolean ficar = true;
         do {
             System.out.print("O que você deseja fazer?");
@@ -76,8 +77,7 @@ public class GUIPodcast implements IMidiaUsuario {
         String idioma = es.nextString();
 
         p = new Podcast(idioma, autores, ano, titulo, descricao, path);
-        System.out.println(gerenciador==null);
-        
+
         if (gerenciador.cadastrar(p)) {
             System.out.println("Podcast cadastrado com sucesso");
         } else {
@@ -104,7 +104,11 @@ public class GUIPodcast implements IMidiaUsuario {
         System.out.println("Digite o titulo da midia");
         String titulo = es.nextString();
         Midia m = gerenciador.consultar(titulo);
-        System.out.println("Dados da midia:\n" + m.toString());
+        if (m != null) {
+            System.out.println("Dados da midia:\n" + m.toString());
+        } else {
+            System.out.println("Midia inexistente");
+        }
     }
 
     //esse
@@ -125,44 +129,47 @@ public class GUIPodcast implements IMidiaUsuario {
             System.out.println("A midia informada não é um PodCast");
             return;
         }
+        if (velho != null) {
+            Podcast novo;
+            System.out.println("Digite o novo titulo do PodCast [tecle ENTER sem digitar nada para pular]");
+            String titulo = es.nextString();
+            if (titulo.equals("")) {
+                titulo = velho.getTitulo();
+            }
+            System.out.println("Digite o novo caminho do arquivo [tecle ENTER sem digitar nada para pular]");
+            String path = es.nextString();
+            if (path.equals("")) {
+                path = velho.getPath();
+            }
+            System.out.println("Digite a nova descrição do arquivo [tecle ENTER sem digitar nada para pular]");
+            String descricao = es.nextString();
+            if (descricao.equals("")) {
+                descricao = velho.getDescricao();
+            }
+            System.out.println("Digite o novo ano do Podcast");
+            int ano = es.nextInt(true);
+            if (ano == Integer.MIN_VALUE) {
+                ano = velho.getAno();
+            }
+            System.out.println("Digite os novos autores do Podcast, separado por ponto e virgula[;] [tecle ENTER sem digitar nada para pular]");
+            String autores = es.nextString();
+            if (autores.equals("")) {
+                autores = velho.getAutores();
+            }
+            System.out.println("Digite o novo idioma do Podcast [tecle ENTER sem digitar nada para pular]");
+            String idioma = es.nextString();
+            if (idioma.equals("")) {
+                idioma = velho.getIdioma();
+            }
 
-        Podcast novo;
-        System.out.println("Digite o novo titulo do PodCast [tecle ENTER sem digitar nada para pular]");
-        String titulo = es.nextString();
-        if (titulo.equals("")) {
-            titulo = velho.getTitulo();
-        }
-        System.out.println("Digite o novo caminho do arquivo [tecle ENTER sem digitar nada para pular]");
-        String path = es.nextString();
-        if (path.equals("")) {
-            path = velho.getPath();
-        }
-        System.out.println("Digite a nova descrição do arquivo [tecle ENTER sem digitar nada para pular]");
-        String descricao = es.nextString();
-        if (descricao.equals("")) {
-            descricao = velho.getDescricao();
-        }
-        System.out.println("Digite o novo ano do Podcast");
-        int ano = es.nextInt(true);
-        if (ano == Integer.MIN_VALUE) {
-            ano = velho.getAno();
-        }
-        System.out.println("Digite os novos autores do Podcast, separado por ponto e virgula[;] [tecle ENTER sem digitar nada para pular]");
-        String autores = es.nextString();
-        if (autores.equals("")) {
-            autores = velho.getAutores();
-        }
-        System.out.println("Digite o novo idioma do Podcast [tecle ENTER sem digitar nada para pular]");
-        String idioma = es.nextString();
-        if (idioma.equals("")) {
-            idioma = velho.getIdioma();
-        }
-
-        novo = new Podcast(idioma, autores, ano, titulo, descricao, path);
-        if (gerenciador.editar(velho, novo)) {
-            System.out.println("Podcast editado com sucesso");
+            novo = new Podcast(idioma, autores, ano, titulo, descricao, path);
+            if (gerenciador.editar(velho, novo)) {
+                System.out.println("Podcast editado com sucesso");
+            } else {
+                System.out.println("Erro ao editar o Podcast");
+            }
         } else {
-            System.out.println("Erro ao editar o Podcast");
+            System.out.println("Podcast não encontrado");
         }
     }
 

@@ -12,11 +12,13 @@ public class Midia {
         this.path = path;
     }
 
-    
     @Override
     public String toString() {
-            return null;
+        return "Titulo=" + titulo + ", descricao=" + descricao + ", caminho=" + path;
     }
+
+    
+
 
     public String getTitulo() {
         return titulo;

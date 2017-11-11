@@ -22,6 +22,11 @@ public class Filme extends Midia {
         this.atoresPrincipais = atoresPrincipais;
         this.ano = ano;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+ "genero=" + genero + ", idioma=" + idioma + ", diretor=" + diretor + ", atoresPrincipais=" + atoresPrincipais + ", ano=" + ano;
+    }
         
 
     /**
