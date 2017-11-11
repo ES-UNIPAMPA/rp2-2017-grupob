@@ -2,6 +2,7 @@ package catalogo.midias;
 
 
 public class Filme extends Midia {
+    
 
 	private String genero;
 
@@ -12,5 +13,85 @@ public class Filme extends Midia {
 	private String atoresPrincipais;
 
 	private int ano;
+
+    public Filme(String genero, String idioma, String diretor, String atoresPrincipais, int ano, String titulo, String descricao, String path) {
+        super(titulo, descricao, path);
+        this.genero = genero;
+        this.idioma = idioma;
+        this.diretor = diretor;
+        this.atoresPrincipais = atoresPrincipais;
+        this.ano = ano;
+    }
+        
+
+    /**
+     * @return the genero
+     */
+    public String getGenero() {
+        return genero;
+    }
+
+    /**
+     * @param genero the genero to set
+     */
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    /**
+     * @return the idioma
+     */
+    public String getIdioma() {
+        return idioma;
+    }
+
+    /**
+     * @param idioma the idioma to set
+     */
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+
+    /**
+     * @return the diretor
+     */
+    public String getDiretor() {
+        return diretor;
+    }
+
+    /**
+     * @param diretor the diretor to set
+     */
+    public void setDiretor(String diretor) {
+        this.diretor = diretor;
+    }
+
+    /**
+     * @return the atoresPrincipais
+     */
+    public String getAtoresPrincipais() {
+        return atoresPrincipais;
+    }
+
+    /**
+     * @param atoresPrincipais the atoresPrincipais to set
+     */
+    public void setAtoresPrincipais(String atoresPrincipais) {
+        this.atoresPrincipais = atoresPrincipais;
+    }
+
+    /**
+     * @return the ano
+     */
+    public int getAno() {
+        return ano;
+    }
+
+    /**
+     * @param ano the ano to set
+     */
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
 
 }

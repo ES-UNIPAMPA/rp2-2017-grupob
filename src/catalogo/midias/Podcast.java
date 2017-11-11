@@ -2,11 +2,20 @@ package catalogo.midias;
 
 public class Podcast extends Midia {
 
-	private String idioma;
+    private String idioma;
 
-	private String autores;
+    private String autores;
 
-	private int ano;
+    private int ano;
+
+    public Podcast(String idioma, String autores, int ano, String titulo, String descricao, String path) {
+        super(titulo, descricao, path);
+        this.idioma = idioma;
+        this.autores = autores;
+        this.ano = ano;
+    }
+
+
 
     /**
      * @return the idioma
@@ -14,6 +23,7 @@ public class Podcast extends Midia {
     public String getIdioma() {
         return idioma;
     }
+
     /**
      * @param idioma the idioma to set
      */
@@ -48,6 +58,5 @@ public class Podcast extends Midia {
     public void setAno(int ano) {
         this.ano = ano;
     }
-        
 
 }
