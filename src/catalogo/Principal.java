@@ -1,8 +1,6 @@
 package catalogo;
 
 import catalogo.guis.GUI;
-import catalogo.guis.GUIFotos;
-import catalogo.guis.GUIMusica;
 
 public class Principal {
 

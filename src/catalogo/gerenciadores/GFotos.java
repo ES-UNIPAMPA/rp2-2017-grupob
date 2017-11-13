@@ -12,7 +12,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 //Imports para logs
@@ -21,11 +20,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class GFotos extends GerenciadorDeMidias {
-    private List<Midia> midias;
     
-    public GFotos() {
-        super();
-        midias = new ArrayList<>();
+    public GFotos(List midias) {
+        super(midias);
     }
     
     //COMORTAMENTOS E MÉTODOS

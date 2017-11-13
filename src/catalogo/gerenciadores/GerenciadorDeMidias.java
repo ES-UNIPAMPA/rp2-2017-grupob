@@ -11,8 +11,6 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
         this.midias = midias;
     }
     
-    public GerenciadorDeMidias(){ }
-
     @Override
     public boolean cadastrar(Midia midia) {
         if (midia != null) {

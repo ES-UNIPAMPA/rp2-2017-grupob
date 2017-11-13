@@ -3,28 +3,22 @@ package catalogo.gerenciadores;
 import catalogo.midias.Midia;
 import catalogo.midias.Musica;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class GMusicas extends GerenciadorDeMidias {
-    private List<Midia> midias;
 
-    public GMusicas() {
-        super();
-        midias = new ArrayList<>();
+    public GMusicas(List midia) {
+        super(midia);
     }
     
     //COMORTAMENTOS E MÉTODOS

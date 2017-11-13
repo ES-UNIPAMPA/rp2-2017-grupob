@@ -4,12 +4,13 @@ package catalogo.guis;
 import catalogo.gerenciadores.GFotos;
 import catalogo.midias.Foto;
 import catalogo.midias.Midia;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 
 public class GUIFotos implements IMidiaUsuario{
     private Scanner scanner = new Scanner(System.in);
-    private GFotos gFotos = new GFotos();
+    private GFotos gFotos = new GFotos(new ArrayList<>());
 
     @Override
     public void cadastro() {

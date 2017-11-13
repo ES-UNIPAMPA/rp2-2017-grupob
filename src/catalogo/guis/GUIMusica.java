@@ -3,11 +3,12 @@ package catalogo.guis;
 import catalogo.gerenciadores.GMusicas;
 import catalogo.midias.Midia;
 import catalogo.midias.Musica;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GUIMusica implements IMidiaUsuario{
     private Scanner scanner = new Scanner(System.in);
-    private GMusicas gMusicas = new GMusicas();
+    private GMusicas gMusicas = new GMusicas(new ArrayList<>());
     
     @Override
     public void cadastro() {
