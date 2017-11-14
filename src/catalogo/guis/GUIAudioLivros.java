@@ -52,7 +52,7 @@ public void menu() {
 //String genero, String idioma, String autores, String local, String editora, int duracao, int ano, String titulo, String descricao, String path
         String genero, idioma, autores, local, editora, titulo, descricao, path;
         int ano;
-        float duracao;
+        double duracao;
 
         AudioLivro midia;
         System.out.println("Genero do AudioLivro: ");
@@ -66,7 +66,7 @@ public void menu() {
         System.out.println("Editora do AudioLivro: ");
         editora = entrada.nextString();
         System.out.println("Duração do AudioLivro: ");
-        duracao = (float) entrada.nextDouble(false);
+        duracao = entrada.nextDouble(false);
         System.out.println("Ano do AudioLivro: ");
         ano = entrada.nextInt(false);
         System.out.println("Título do AudioLivro: ");

@@ -59,7 +59,7 @@ public void menu() {
         autores = entrada.nextString();
         System.out.println("Instrumentos da Partitura Musical : ");
         instrumentos = entrada.nextString();
-        System.out.println("Ano da Partitura Musical: ");
+        System.out.println("Ano da Partitura Musical:");
         ano = entrada.nextInt(false);
         System.out.println("Título da Partitura Musical: ");
         titulo = entrada.nextString();

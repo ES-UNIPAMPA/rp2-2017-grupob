@@ -14,6 +14,11 @@ public class PartituraMusical extends Midia {
         this.ano = ano;
     }
 
+    @Override
+    public String toString() {
+        return "PartituraMusical{" + "genero=" + genero + ", autores=" + autores + ", instrumentos=" + instrumentos + ", ano=" + ano + '}';
+    }
+
 
     public String getGenero() {
         return genero;
