@@ -1,16 +1,19 @@
 package catalogo.midias;
 
+import catalogo.Pessoa;
+import java.util.ArrayList;
+
 
 public class AudioLivro extends Midia {
 	private String genero;
 	private String idioma;
-	private String autores;
+	private ArrayList <Pessoa> autores;
 	private String local;
 	private String editora;
 	private double duracao;
 	private int ano;
 
-    public AudioLivro(String genero, String idioma, String autores, String local, String editora, double duracao, int ano, String titulo, String descricao, String path) {
+    public AudioLivro(String genero, String idioma, ArrayList<Pessoa> autores, String local, String editora, double duracao, int ano, String titulo, String descricao, String path) {
         super(titulo, descricao, path);
         this.genero = genero;
         this.idioma = idioma;
@@ -19,10 +22,7 @@ public class AudioLivro extends Midia {
         this.editora = editora;
         this.duracao = duracao;
         this.ano = ano;
-        
     }
-
-
 
     @Override
     public String toString() {
@@ -46,12 +46,12 @@ public class AudioLivro extends Midia {
         this.idioma = idioma;
     }
 
-    public String getAutores() {
-        return autores;
+    public void addAutor(Pessoa autor) {
+        autores.add(autor);
     }
-
-    public void setAutores(String autores) {
-        this.autores = autores;
+    public ArrayList<Pessoa> getAutor(){
+            return autores;
+        
     }
 
     public String getLocal() {

@@ -1,19 +1,39 @@
 package catalogo.midias;
 
+import catalogo.InstrumentoMusical;
+import catalogo.Pessoa;
+import java.util.ArrayList;
+
 public class PartituraMusical extends Midia {
 	private String genero;
-	private String autores;
-	private String instrumentos;
+	private ArrayList <Pessoa> autores;
+	private ArrayList <InstrumentoMusical> instrumentos;
 	private int ano;
 
-    public PartituraMusical(String genero, String autores, String instrumentos, int ano, String titulo, String descricao, String path) {
+    public PartituraMusical(String genero, ArrayList<Pessoa> autores, ArrayList<InstrumentoMusical> instrumentos, int ano, String titulo, String descricao, String path) {
         super(titulo, descricao, path);
         this.genero = genero;
         this.autores = autores;
         this.instrumentos = instrumentos;
         this.ano = ano;
     }
-
+    
+    public void addInstrumento(InstrumentoMusical m){
+        instrumentos.add(m);
+    }
+    
+    public void addInstrumentoMusical(InstrumentoMusical m){
+        instrumentos.add(m);
+    }
+    
+    public void addAutor(Pessoa autor) {
+        autores.add(autor);
+    }
+    
+    public ArrayList<Pessoa> getAutor(){
+            return autores;
+        
+    }
     @Override
     public String toString() {
         return "PartituraMusical{" + "genero=" + genero + ", autores=" + autores + ", instrumentos=" + instrumentos + ", ano=" + ano + '}';
@@ -26,22 +46,6 @@ public class PartituraMusical extends Midia {
 
     public void setGenero(String genero) {
         this.genero = genero;
-    }
-
-    public String getAutores() {
-        return autores;
-    }
-
-    public void setAutores(String autores) {
-        this.autores = autores;
-    }
-
-    public String getInstrumentos() {
-        return instrumentos;
-    }
-
-    public void setInstrumentos(String instrumentos) {
-        this.instrumentos = instrumentos;
     }
 
     public int getAno() {

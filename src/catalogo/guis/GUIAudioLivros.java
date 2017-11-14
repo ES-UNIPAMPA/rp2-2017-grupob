@@ -122,7 +122,7 @@ public void menu() {
         System.out.println("Autores do AudioLivro: ");
         autores = entrada.nextString();
         if(autores.equals("")){
-            autores = velho.getAutores();
+            autores = velho.getAutor();
         }
         
         System.out.println("Local do AudioLivro: ");
