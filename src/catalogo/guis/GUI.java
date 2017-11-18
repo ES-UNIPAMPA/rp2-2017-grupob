@@ -22,7 +22,8 @@ public class GUI {
         int escolhaUsuario = es.nextInt(false);
         switch (escolhaUsuario) {
             case 1:
-                //GUIAudioLivros guialdiolivros = new GUIAudioLivros();
+                GUIAudioLivros guiaudiolivros = new GUIAudioLivros();
+                guiaudiolivros.menu();
                 break;
             case 2:
                // GUIEBook guiebook = new GUIEBook();

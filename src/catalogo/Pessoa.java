@@ -3,8 +3,8 @@ package catalogo;
 public class Pessoa {
     private String nome;
 
-    public Pessoa(String nome) {
-        this.nome = nome;
+    public Pessoa() {
+        nome = "";
     }
     
     public String getNome() {
@@ -12,5 +12,10 @@ public class Pessoa {
     }
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 }

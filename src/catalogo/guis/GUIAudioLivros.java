@@ -1,6 +1,7 @@
 package catalogo.guis;
 
 import catalogo.EntradasDoUsuarioComValidacao;
+import catalogo.Pessoa;
 import catalogo.gerenciadores.GAudioLivros;
 import catalogo.gerenciadores.IGerenciador;
 import catalogo.midias.AudioLivro;
@@ -15,7 +16,7 @@ public class GUIAudioLivros implements IMidiaUsuario {
 public void menu() {
         boolean ficar = true;
         do {
-            System.out.print("O que você deseja?");
+            System.out.println("O que você deseja?");
             System.out.println("1- Cadastrar um AudioLivro");
             System.out.println("2- Excluir um AudioLivro");
             System.out.println("3- Consultar um AudioLivro");
@@ -49,34 +50,36 @@ public void menu() {
     }
     @Override
     public void cadastro() {
-//String genero, String idioma, String autores, String local, String editora, int duracao, int ano, String titulo, String descricao, String path
-        String genero, idioma, autores, local, editora, titulo, descricao, path;
+    //String genero, String idioma, String autores, String local, String editora, int duracao, int ano, String titulo, String descricao, String path
+        String genero, idioma, local, editora, titulo, descricao, path;
         int ano;
         double duracao;
-
+        ArrayList<Pessoa> pe;
+        System.out.println("Título do AudioLivro: ");
+        titulo = entrada.nextString();
+        System.out.println("Ano do AudioLivro: ");
+        ano = entrada.nextInt(false);
+        System.out.println("Descrição do AudioLivro: ");
+        descricao = entrada.nextString();
+        System.out.println("Digite o caminho do ar1quivo");
+        path = entrada.nextString();
         AudioLivro midia;
         System.out.println("Genero do AudioLivro: ");
         genero = entrada.nextString();
         System.out.println("Idioma do AudioLivro: ");
         idioma = entrada.nextString();
         System.out.println("Autores do AudioLivro: ");
-        autores = entrada.nextString();
+        pe = receberAutores();
         System.out.println("Local do AudioLivro: ");
         local = entrada.nextString();
         System.out.println("Editora do AudioLivro: ");
         editora = entrada.nextString();
         System.out.println("Duração do AudioLivro: ");
         duracao = entrada.nextDouble(false);
-        System.out.println("Ano do AudioLivro: ");
-        ano = entrada.nextInt(false);
-        System.out.println("Título do AudioLivro: ");
-        titulo = entrada.nextString();
-        System.out.println("Descrição do AudioLivro: ");
-        descricao = entrada.nextString();
-        System.out.println("Digite o caminho do arquivo");
-        path = entrada.nextString();
+        
+       
 
-        midia = new AudioLivro(genero, idioma, autores, local, editora, duracao, ano, titulo, descricao, path);
+        midia = new AudioLivro(genero, idioma,pe, local, editora, duracao, ano, titulo, descricao, path);
         gerenciador.cadastrar(midia);
     }
 
@@ -91,7 +94,7 @@ public void menu() {
 
     @Override
     public void consulta() {
-        System.out.println("Digite o titulo do AudioLivro a ser excluido");
+        System.out.println("Digite o titulo do AudioLivro a ser consultado");
         String titulo = entrada.nextString();
         Midia m = gerenciador.consultar(titulo);
         System.out.println("Dados do AudioLivro:\n" + m.toString());
@@ -99,9 +102,11 @@ public void menu() {
 
     @Override
     public void editar() {
-        String genero, idioma, autores, local, editora, titulo, descricao, path;
+        String genero, idioma, local, editora, titulo, descricao, path;
         int ano;
         double duracao;
+        ArrayList <Pessoa> pe;
+        
         System.out.println("Digite o título do AudioLivro desejado para a edição");
         titulo = entrada.nextString();
         AudioLivro velho = (AudioLivro)gerenciador.consultar(titulo);
@@ -120,10 +125,7 @@ public void menu() {
         }
         
         System.out.println("Autores do AudioLivro: ");
-        autores = entrada.nextString();
-        if(autores.equals("")){
-            autores = velho.getAutor();
-        }
+        pe = receberAutores();
         
         System.out.println("Local do AudioLivro: ");
         local = entrada.nextString();
@@ -167,7 +169,7 @@ public void menu() {
             path = velho.getPath();
         }
        //genero, idioma, autores, local, editora, duracao, ano,titulo, descricao, path
-        novo = new AudioLivro(genero, idioma, autores, local, editora, duracao, ano, titulo, descricao, path);
+        novo = new AudioLivro(genero, idioma, pe, local, editora, duracao, ano, titulo, descricao, path);
         gerenciador.editar(velho, novo);
     }
 
@@ -190,5 +192,29 @@ public void menu() {
     public void ordenar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    public ArrayList<Pessoa> receberAutores(){
+        EntradasDoUsuarioComValidacao in = new EntradasDoUsuarioComValidacao();
+        boolean c = true;
+        ArrayList<Pessoa> p = new ArrayList();
+        
+        while(c!=false){
+        Pessoa t = new Pessoa();
+        System.out.println("Digite o nome do Autor, ou exit para sair.");
+            String nome = in.nextString();
+            if(nome.equals("exit")){
+                c = false;
+            }else{
+                t.setNome(nome);
+                p.add(t);
+            }
+        }
+        return p;
+    }
+       
+    public static void main(String[] args) {
+        GUIAudioLivros guiaudiolivros = new GUIAudioLivros();
+                guiaudiolivros.menu();
+                
+    }
 }

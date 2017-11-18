@@ -26,7 +26,7 @@ public class AudioLivro extends Midia {
 
     @Override
     public String toString() {
-        return "AudioLivro{" + "genero=" + genero + ", idioma=" + idioma + ", autores=" + autores + ", local=" + local + ", editora=" + editora + ", duracao=" + duracao + ", ano=" + ano + '}';
+        return "AudioLivro{" + "genero=" + genero + ", idioma=" + idioma + ", autores=" + autores.toString() + ", local=" + local + ", editora=" + editora + ", duracao=" + duracao + ", ano=" + ano + '}';
     }
             
         
