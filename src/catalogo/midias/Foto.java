@@ -1,16 +1,14 @@
 package catalogo.midias;
 
-import java.util.Calendar;
-
 public class Foto extends Midia{
 
     private String fotografo;
     private String pessoas;
     private String local;
-    private Calendar data;
-    private Calendar hora;
+    private String data;
+    private String hora;
 
-    public Foto(String titulo, String descricao, String path, String fotografo, String pessoas, String local, Calendar data, Calendar hora) {
+    public Foto(String titulo, String descricao, String path, String fotografo, String pessoas, String local, String data, String hora) {
         super(titulo, descricao,path);
         this.fotografo = fotografo;
         this.pessoas = pessoas;
@@ -44,19 +42,19 @@ public class Foto extends Midia{
         this.local = local;
     }
 
-    public Calendar getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Calendar data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public Calendar getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Calendar hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 

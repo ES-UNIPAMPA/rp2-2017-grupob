@@ -15,7 +15,7 @@ public class GAudioLivros extends GerenciadorDeMidias {
     }
 
     @Override
-    public boolean salvarArquivo(String path, Midia midia) {
+    public boolean salvarArquivo(String path) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
