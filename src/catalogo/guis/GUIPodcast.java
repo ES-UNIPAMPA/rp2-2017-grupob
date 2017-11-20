@@ -7,57 +7,11 @@ import catalogo.midias.Midia;
 import catalogo.midias.Podcast;
 import java.util.ArrayList;
 
-public class GUIPodcast implements IMidiaUsuario {
+public class GUIPodcast extends GUI {
 
     private EntradasDoUsuarioComValidacao es = new EntradasDoUsuarioComValidacao();
 
     private IGerenciador gerenciador = GPodcasts.getInstance();
-
-    private static final GUIPodcast ME = new GUIPodcast();
-
-    private GUIPodcast() {
-
-    }
-
-    public static GUIPodcast getInstance() {
-        return ME;
-    }
-
-    public void menu() {
-        boolean ficar = true;
-        do {
-            System.out.print("O que você deseja fazer?");
-            System.out.println("1- Cadastrar um podcast");
-            System.out.println("2- Excluir um podcast");
-            System.out.println("3- Consultar um podcast");
-            System.out.println("4- Exibir todos os podcasts");
-            System.out.println("5- Editar um podcast");
-            System.out.println("6 -Sair");
-            int escolhaUsuario = es.nextInt(false);
-            switch (escolhaUsuario) {
-                case 1:
-                    cadastro();
-                    break;
-                case 2:
-                    exclusao();
-                    break;
-                case 3:
-                    consulta();
-                    break;
-                case 4:
-                    exibirDadosTodasMidias();
-                    break;
-                case 5:
-                    editar();
-                    break;
-                case 6:
-                    ficar = false;
-                    break;
-                default:
-                    System.out.println("Não entendi!");
-            }
-        } while (ficar);
-    }
 
     //esse
     @Override
@@ -175,12 +129,16 @@ public class GUIPodcast implements IMidiaUsuario {
 
     @Override
     public void salvar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Salvando....");
+        gerenciador.salvarArquivo("/midias/podcasts/podcasts.txt");
+        System.out.println("Salvo");
     }
 
     @Override
     public void carregar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Carregando...");
+        gerenciador.carregarArquivo("/midias/podcasts/podcasts.txt");
+        System.out.println("Carregado");
     }
 
     @Override

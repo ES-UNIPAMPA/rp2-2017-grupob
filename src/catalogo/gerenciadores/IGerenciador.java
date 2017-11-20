@@ -6,6 +6,8 @@
 package catalogo.gerenciadores;
 
 import catalogo.midias.Midia;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 /**

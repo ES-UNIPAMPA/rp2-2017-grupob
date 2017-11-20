@@ -1,61 +1,15 @@
 package catalogo.guis;
 
-import catalogo.EntradasDoUsuarioComValidacao;
 import catalogo.gerenciadores.GFilmes;
 import catalogo.gerenciadores.IGerenciador;
 import catalogo.midias.Filme;
 import catalogo.midias.Midia;
 import java.util.ArrayList;
 
-public class GUIFilmes implements IMidiaUsuario {
+public class GUIFilmes extends GUI {
 
-    IGerenciador gerenciador = new GFilmes(new ArrayList<>());
-    EntradasDoUsuarioComValidacao es = new EntradasDoUsuarioComValidacao();
-    private static final GUIFilmes ME = new GUIFilmes();
-
-    private GUIFilmes() {
-
-    }
-
-    public static GUIFilmes getInstance() {
-        return ME;
-    }
-
-    public void menu() {
-        boolean ficar = true;
-        do {
-            System.out.print("O que você deseja fazer?");
-            System.out.println("1- Cadastrar um Filme");
-            System.out.println("2- Excluir um filme");
-            System.out.println("3- Consultar um filme");
-            System.out.println("4- Exibir todos os filmes");
-            System.out.println("5- Editar um filme");
-            System.out.println("6 -Sair");
-            int escolhaUsuario = es.nextInt(false);
-            switch (escolhaUsuario) {
-                case 1:
-                    cadastro();
-                    break;
-                case 2:
-                    exclusao();
-                    break;
-                case 3:
-                    consulta();
-                    break;
-                case 4:
-                    exibirDadosTodasMidias();
-                    break;
-                case 5:
-                    editar();
-                    break;
-                case 6:
-                    ficar = false;
-                    break;
-                default:
-                    System.out.println("Não entendi!");
-            }
-        } while (ficar);
-    }
+    IGerenciador gerenciador = GFilmes.getInstance();
+ 
 
     //esse
     @Override
@@ -186,13 +140,16 @@ public class GUIFilmes implements IMidiaUsuario {
 
     @Override
     public void salvar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            System.out.println("Salvando....");
+            gerenciador.salvarArquivo("/midias/filmes/filmes.txt");
+            System.out.println("Salvo");
     }
 
     @Override
     public void carregar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        System.out.println("Carregando...");
+        gerenciador.carregarArquivo("/midias/filmes/filmes.txt");
+        System.out.println("Carregado");    }
 
     @Override
     public void ordenar() {

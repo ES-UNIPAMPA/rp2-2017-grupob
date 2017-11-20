@@ -64,4 +64,13 @@ public class Podcast extends Midia {
         this.ano = ano;
     }
 
+    @Override
+    public String toFile() {
+        String retorno=super.toFile();
+        retorno+=idioma+"\n";
+        retorno+=autores+"\n";
+        retorno+=ano+"\n";
+        return retorno;
+    }
+
 }

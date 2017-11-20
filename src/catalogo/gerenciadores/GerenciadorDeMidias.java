@@ -1,7 +1,15 @@
 package catalogo.gerenciadores;
 
 import catalogo.midias.Midia;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class GerenciadorDeMidias implements IGerenciador {
 
@@ -10,7 +18,10 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
     public GerenciadorDeMidias(List midias) {
         this.midias = midias;
     }
-    
+
+    public GerenciadorDeMidias() {
+    }
+
     @Override
     public boolean cadastrar(Midia midia) {
         if (midia != null) {
@@ -58,7 +69,36 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
         }
         return false;
     }
-    protected List getMidias(){
+
+    protected List getMidias() {
         return midias;
+    }
+
+    @Override
+    public boolean salvarArquivo(String path) {
+
+        try {
+            FileOutputStream outFile;
+            BufferedWriter buff;
+            outFile = new FileOutputStream(new File(path));
+            buff = new BufferedWriter(new OutputStreamWriter(outFile, "UTF-8"));
+
+            buff.write(midias.size() + "\r\n");
+
+            for (Midia midia : midias) {
+                buff.write(midia.toFile());
+                buff.write("\r\n");
+            }
+            buff.close();
+            outFile.close();
+            return true;
+        } catch (FileNotFoundException e) {
+            Logger.getLogger(GFotos.class.getName()).log(Level.SEVERE, null, e);
+            return false;
+        } catch (IOException | SecurityException ex) {
+            Logger.getLogger(GFotos.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
     }
 }

@@ -1,18 +1,12 @@
 package catalogo.midias;
 
-
 public class Filme extends Midia {
-    
 
-	private String genero;
-
-	private String idioma;
-
-	private String diretor;
-
-	private String atoresPrincipais;
-
-	private int ano;
+    private String genero;
+    private String idioma;
+    private String diretor;
+    private String atoresPrincipais;
+    private int ano;
 
     public Filme(String genero, String idioma, String diretor, String atoresPrincipais, int ano, String titulo, String descricao, String path) {
         super(titulo, descricao, path);
@@ -25,9 +19,8 @@ public class Filme extends Midia {
 
     @Override
     public String toString() {
-        return super.toString()+ "genero=" + genero + ", idioma=" + idioma + ", diretor=" + diretor + ", atoresPrincipais=" + atoresPrincipais + ", ano=" + ano;
+        return super.toString() + "genero=" + genero + ", idioma=" + idioma + ", diretor=" + diretor + ", atoresPrincipais=" + atoresPrincipais + ", ano=" + ano;
     }
-        
 
     /**
      * @return the genero
@@ -97,6 +90,17 @@ public class Filme extends Midia {
      */
     public void setAno(int ano) {
         this.ano = ano;
+    }
+
+    @Override
+    public String toFile() {
+        String retorno = super.toFile();
+        retorno += genero + "\n";
+        retorno += idioma + "\n";
+        retorno += atoresPrincipais + "\n";
+        retorno += diretor + "\n";
+        retorno += ano + "\n";
+        return retorno;
     }
 
 }

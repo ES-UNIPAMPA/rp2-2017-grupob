@@ -1,6 +1,6 @@
 package catalogo.midias;
 
-public class Midia {
+public abstract class Midia {
 
     private String titulo;
     private String descricao;
@@ -12,9 +12,17 @@ public class Midia {
         this.path = path;
     }
 
+    public String toFile() {
+        String retorno = "";
+        retorno += titulo + "\n";
+        retorno += path + "\n";
+        retorno += descricao + "\n";
+        return retorno;
+    }
+
     @Override
     public String toString() {
-        return titulo + "\r\n" + descricao+ "\r\n" + path + "\r\n";
+        return "Titulo=" + titulo + ", descricao=" + descricao + ", caminho=" + path;
     }
 
     public String getTitulo() {
