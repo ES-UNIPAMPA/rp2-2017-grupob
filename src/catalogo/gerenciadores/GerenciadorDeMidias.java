@@ -44,8 +44,8 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
     }
 
     @Override
-    public String exibir() {
-        return null;
+    public List<Midia> exibir() {
+        return midias;
     }
 
     @Override

@@ -37,6 +37,7 @@ public class GFotos extends GerenciadorDeMidias {
         FileHandler log = null;
         String pathMidia = null, titulo = null, descricao = null,fotografo = null, 
                pessoas = null, local = null, data = null, hora = null;
+        Midia midia = null;
         
         
         try {
@@ -48,11 +49,9 @@ public class GFotos extends GerenciadorDeMidias {
             FileReader reader = new FileReader(file);
             BufferedReader buffered = new BufferedReader(reader);
             
-            pathMidia = buffered.readLine();
-            
-            while(pathMidia != null){
-                titulo    = buffered.readLine();
+            while((titulo = buffered.readLine()) != null){
                 descricao = buffered.readLine();
+                pathMidia = buffered.readLine();
                 fotografo = buffered.readLine();
                 pessoas   = buffered.readLine();
                 local     = buffered.readLine();
@@ -60,13 +59,11 @@ public class GFotos extends GerenciadorDeMidias {
                 hora      = buffered.readLine();
                 
                 //Inserindo midia do arquivo na coleção do software
-                Midia midia = new Foto(titulo, descricao, path, fotografo, pessoas, local, data, hora);
+                midia = new Foto(titulo, descricao, pathMidia, fotografo, pessoas, local, data, hora);
 
                 super.cadastrar(midia);
                 
                 buffered.readLine();
-                pathMidia = buffered.readLine();
-                
             }
             
             logger.info("Arquivo carregado com sucesso em.");  
@@ -92,7 +89,7 @@ public class GFotos extends GerenciadorDeMidias {
 
             for(Object midias : super.getMidias()){
                bufferedWriter.write(midias.toString());
-               bufferedWriter.write("\n");
+               bufferedWriter.write("\r\n");
             }
             
             bufferedWriter.close();

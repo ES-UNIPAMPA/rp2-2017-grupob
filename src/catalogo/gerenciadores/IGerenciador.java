@@ -6,6 +6,7 @@
 package catalogo.gerenciadores;
 
 import catalogo.midias.Midia;
+import java.util.List;
 
 /**
  *
@@ -19,7 +20,7 @@ public interface IGerenciador {
 
     public Midia consultar(String titulo) ;
 
-    public String exibir() ;
+    public List exibir() ;
 
     public abstract void ordenar();
 

@@ -60,7 +60,7 @@ public class Foto extends Midia{
 
     @Override
     public String toString() {
-        return super.toString() + "Foto{" + "fotografo=" + fotografo + ", pessoas=" + pessoas + ", local=" + local + ", data=" + data + ", hora=" + hora + '}';
+        return super.toString() + fotografo + "\r\n" + pessoas + "\r\n" + local + "\r\n" + data + "\r\n" + hora + "\r\n";
     }    
 
 }

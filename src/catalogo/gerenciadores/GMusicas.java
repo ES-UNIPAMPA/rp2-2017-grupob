@@ -92,7 +92,7 @@ public class GMusicas extends GerenciadorDeMidias {
 
             for(Object midias : super.getMidias()){
                bufferedWriter.write(midias.toString());
-               bufferedWriter.write("\n");
+               bufferedWriter.write("\r\n");
             }
 
             bufferedWriter.close();

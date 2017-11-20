@@ -14,11 +14,8 @@ public class Midia {
 
     @Override
     public String toString() {
-        return "Titulo=" + titulo + ", descricao=" + descricao + ", caminho=" + path;
+        return titulo + "\r\n" + descricao+ "\r\n" + path + "\r\n";
     }
-
-    
-
 
     public String getTitulo() {
         return titulo;

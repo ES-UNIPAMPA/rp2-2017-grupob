@@ -71,7 +71,8 @@ public class Musica extends Midia {
 
     @Override
     public String toString() {
-        return super.toString() + "Musica{" + "genero=" + genero + ", idioma=" + idioma + ", autores=" + autores + ", interpretes=" + interpretes + ", duracao=" + duracao + ", ano=" + ano + '}';
+        return super.toString() + genero + "\r\n" + idioma + "\r\n" + autores + "\r\n" 
+                                + interpretes + "\r\n" + duracao + "\r\n" + ano + "\r\n";
     }
     
     
