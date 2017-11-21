@@ -5,14 +5,13 @@
  */
 package interfacegrafica;
 
-import catalogo.gerenciadores.GFotos;
+import catalogo.gerenciadores.GMusicas;
 import catalogo.gerenciadores.IGerenciador;
-import catalogo.midias.Foto;
 import catalogo.midias.Midia;
+import catalogo.midias.Musica;
 import java.awt.event.KeyAdapter;
 import java.io.IOException;
 import java.io.File;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -27,23 +26,21 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author MICHAEL MARTINS
  */
-public class InterfaceFotos extends javax.swing.JFrame {
-    
-    DateFormat df = DateFormat.getDateInstance();
+public class InterfaceMusicas extends javax.swing.JFrame {
     
     private JFileChooser chooser = new JFileChooser();
     
     private int xMousePressed;
     private int yMousePressed;
-    private IGerenciador gFotos = null;
+    private IGerenciador gMusicas = null;
     private DefaultTableModel modelTabMidias;
     
     /**
      * Creates new form Home
      */
-    public InterfaceFotos() {
+    public InterfaceMusicas() {
         initComponents();
-        gFotos = new GFotos(new ArrayList<>());
+        gMusicas = new GMusicas(new ArrayList<>());
         gerarImagensInterface();
         modelTabMidias = (DefaultTableModel) jTable.getModel();
     }
@@ -74,24 +71,26 @@ public class InterfaceFotos extends javax.swing.JFrame {
         txtCaminho = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JLabel();
         txtDescricao = new javax.swing.JLabel();
-        txtFotografo = new javax.swing.JLabel();
-        txtPessoas = new javax.swing.JLabel();
-        txtLocal = new javax.swing.JLabel();
-        txtData = new javax.swing.JLabel();
-        txtHora = new javax.swing.JLabel();
+        txtGenero = new javax.swing.JLabel();
+        txtidioma = new javax.swing.JLabel();
+        txtAutores = new javax.swing.JLabel();
+        txtDuracao = new javax.swing.JLabel();
         editDescricao = new javax.swing.JTextField();
         editCaminho = new javax.swing.JTextField();
         editTitulo = new javax.swing.JTextField();
-        editPessoas = new javax.swing.JTextField();
-        editLocal = new javax.swing.JTextField();
-        editFotografo = new javax.swing.JTextField();
-        editFormatHora = new javax.swing.JFormattedTextField();
+        editIdioma = new javax.swing.JTextField();
+        editAno = new javax.swing.JTextField();
+        editGenero = new javax.swing.JTextField();
+        editFormatDuracao = new javax.swing.JFormattedTextField();
         btnLimparCampos = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         InforCadastrar = new javax.swing.JPanel();
         txtInforCadastrar = new javax.swing.JLabel();
         inforCadastrar = new javax.swing.JLabel();
-        editCalendarDate = new com.toedter.calendar.JDateChooser();
+        editInterpretes = new javax.swing.JTextField();
+        txtInterpretes = new javax.swing.JLabel();
+        txtAno = new javax.swing.JLabel();
+        editAutores = new javax.swing.JTextField();
         jPanelConsultar = new javax.swing.JPanel();
         txtTituloPesquisa = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -145,7 +144,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
         txtCatalogodeMidias.setFont(new java.awt.Font("Aardvark Cafe", 1, 36)); // NOI18N
         txtCatalogodeMidias.setForeground(new java.awt.Color(51, 51, 51));
         txtCatalogodeMidias.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        txtCatalogodeMidias.setText("Catálogo de Fotos");
+        txtCatalogodeMidias.setText("Catálogo de Músicas");
         jPanelTop.add(txtCatalogodeMidias, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 550, 70));
         jPanelTop.add(imageLinhasTransparentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 0, -1, -1));
 
@@ -298,30 +297,25 @@ public class InterfaceFotos extends javax.swing.JFrame {
         txtDescricao.setText("DESCRIÇÃO:");
         jPCadastrar.add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, -1, -1));
 
-        txtFotografo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        txtFotografo.setForeground(new java.awt.Color(33, 150, 243));
-        txtFotografo.setText("FOTÓGRAFO:");
-        jPCadastrar.add(txtFotografo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+        txtGenero.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        txtGenero.setForeground(new java.awt.Color(33, 150, 243));
+        txtGenero.setText("GÊNERO:");
+        jPCadastrar.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
-        txtPessoas.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        txtPessoas.setForeground(new java.awt.Color(33, 150, 243));
-        txtPessoas.setText("PESSOAS:");
-        jPCadastrar.add(txtPessoas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
+        txtidioma.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        txtidioma.setForeground(new java.awt.Color(33, 150, 243));
+        txtidioma.setText("IDIOMA:");
+        jPCadastrar.add(txtidioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
 
-        txtLocal.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        txtLocal.setForeground(new java.awt.Color(33, 150, 243));
-        txtLocal.setText("LOCAL:");
-        jPCadastrar.add(txtLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, -1, -1));
+        txtAutores.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        txtAutores.setForeground(new java.awt.Color(33, 150, 243));
+        txtAutores.setText("AUTORES:");
+        jPCadastrar.add(txtAutores, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, -1, -1));
 
-        txtData.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        txtData.setForeground(new java.awt.Color(33, 150, 243));
-        txtData.setText("DATA:");
-        jPCadastrar.add(txtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
-
-        txtHora.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        txtHora.setForeground(new java.awt.Color(33, 150, 243));
-        txtHora.setText("HORA:");
-        jPCadastrar.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
+        txtDuracao.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        txtDuracao.setForeground(new java.awt.Color(33, 150, 243));
+        txtDuracao.setText("DURAÇÃO:");
+        jPCadastrar.add(txtDuracao, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         editDescricao.setBackground(new java.awt.Color(187, 187, 187));
         jPCadastrar.add(editDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 190, 40));
@@ -332,28 +326,29 @@ public class InterfaceFotos extends javax.swing.JFrame {
         editTitulo.setBackground(new java.awt.Color(187, 187, 187));
         jPCadastrar.add(editTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 190, 40));
 
-        editPessoas.setBackground(new java.awt.Color(187, 187, 187));
-        jPCadastrar.add(editPessoas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 190, 40));
+        editIdioma.setBackground(new java.awt.Color(187, 187, 187));
+        jPCadastrar.add(editIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 190, 40));
 
-        editLocal.setBackground(new java.awt.Color(187, 187, 187));
-        jPCadastrar.add(editLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 190, 40));
+        editAno.setBackground(new java.awt.Color(187, 187, 187));
+        jPCadastrar.add(editAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 190, 40));
 
-        editFotografo.setBackground(new java.awt.Color(187, 187, 187));
-        jPCadastrar.add(editFotografo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 190, 40));
+        editGenero.setBackground(new java.awt.Color(187, 187, 187));
+        jPCadastrar.add(editGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 190, 40));
 
-        editFormatHora.setBackground(new java.awt.Color(187, 187, 187));
+        editFormatDuracao.setBackground(new java.awt.Color(187, 187, 187));
         try {
-            editFormatHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+            editFormatDuracao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jPCadastrar.add(editFormatHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 190, 40));
+        jPCadastrar.add(editFormatDuracao, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 190, 40));
 
         btnLimparCampos.setBackground(new java.awt.Color(33, 150, 243));
         btnLimparCampos.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnLimparCampos.setForeground(new java.awt.Color(51, 51, 51));
         btnLimparCampos.setText("Limpar Campos");
         btnLimparCampos.setToolTipText("Clique para limpar todos os campos.");
+        btnLimparCampos.setBorder(null);
         btnLimparCampos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLimparCampos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -365,8 +360,9 @@ public class InterfaceFotos extends javax.swing.JFrame {
         btnAdd.setBackground(new java.awt.Color(33, 150, 243));
         btnAdd.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(51, 51, 51));
-        btnAdd.setText("Adicionar Foto");
+        btnAdd.setText("Adicionar Música");
         btnAdd.setToolTipText("Clique para adicionar mídia na sua coleção.");
+        btnAdd.setBorder(null);
         btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -404,10 +400,21 @@ public class InterfaceFotos extends javax.swing.JFrame {
 
         jPCadastrar.add(InforCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 330, 20));
 
-        editCalendarDate.setBackground(new java.awt.Color(187, 187, 187));
-        editCalendarDate.setForeground(new java.awt.Color(51, 51, 51));
-        editCalendarDate.setToolTipText("");
-        jPCadastrar.add(editCalendarDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 190, 40));
+        editInterpretes.setBackground(new java.awt.Color(187, 187, 187));
+        jPCadastrar.add(editInterpretes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 190, 40));
+
+        txtInterpretes.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        txtInterpretes.setForeground(new java.awt.Color(33, 150, 243));
+        txtInterpretes.setText("INTERPRETES:");
+        jPCadastrar.add(txtInterpretes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+
+        txtAno.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        txtAno.setForeground(new java.awt.Color(33, 150, 243));
+        txtAno.setText("ANO:");
+        jPCadastrar.add(txtAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, -1, -1));
+
+        editAutores.setBackground(new java.awt.Color(187, 187, 187));
+        jPCadastrar.add(editAutores, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 190, 40));
 
         jTabConteudos.addTab("Cadastrar", jPCadastrar);
 
@@ -514,7 +521,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Título", "Descricão", "Caminho", "Fotógrafo", "Pessoas", "Local", "Data", "Hora"
+                "Título", "Descricão", "Caminho", "Gênero", "Idioma", "Autores", "Interpretes", "Duração", "Ano"
             }
         ));
         jTable.setGridColor(new java.awt.Color(0, 0, 0));
@@ -529,6 +536,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
         btnRemoverMidia.setForeground(new java.awt.Color(51, 51, 51));
         btnRemoverMidia.setText("Remover Mídia");
         btnRemoverMidia.setToolTipText("Clique para remover uma mídia");
+        btnRemoverMidia.setBorder(null);
         btnRemoverMidia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRemoverMidia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -542,6 +550,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
         btnAtualizarMidias.setForeground(new java.awt.Color(51, 51, 51));
         btnAtualizarMidias.setText("Atualizar Mídias");
         btnAtualizarMidias.setToolTipText("Clique para ordenar.");
+        btnAtualizarMidias.setBorder(null);
         btnAtualizarMidias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAtualizarMidias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -555,6 +564,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
         btnOrdenarMidia1.setForeground(new java.awt.Color(51, 51, 51));
         btnOrdenarMidia1.setText("Ordenar Mídias");
         btnOrdenarMidia1.setToolTipText("Clique para ordenar.");
+        btnOrdenarMidia1.setBorder(null);
         btnOrdenarMidia1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnOrdenarMidia1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -675,7 +685,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
         String path = getPathFile();
         
         if (path!= null) {
-            if (gFotos.salvarArquivo(path)) {
+            if (gMusicas.salvarArquivo(path)) {
                 JOptionPane.showMessageDialog(null, "Arquivo salvo com sucesso.");
             }else{
                 JOptionPane.showMessageDialog(null, "Falha ao salvar arquivo.");
@@ -687,7 +697,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
     private void btnCarregarArquivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCarregarArquivoMouseClicked
         String path = getPathFile();
         if (path!= null) {
-            if (gFotos.carregarArquivo(path)) {
+            if (gMusicas.carregarArquivo(path)) {
                 JOptionPane.showMessageDialog(null, "Arquivo carregado com sucesso.");
             }
         }
@@ -697,17 +707,9 @@ public class InterfaceFotos extends javax.swing.JFrame {
         if (editConsultar.getText().trim().equals("")) {
             txtInforConsultar.setText("Digite algo para pesquisar.");
         }else{
-            Foto aux = (Foto) gFotos.consultar(editConsultar.getText());
-
+            Musica aux = (Musica) gMusicas.consultar(editConsultar.getText());
             if (aux != null) {
-                TextAreaConsulta.setText( aux.getPath()+"\n"+
-                    aux.getTitulo()+"\n"+
-                    aux.getDescricao()+"\n"+
-                    aux.getFotografo()+"\n"+
-                    aux.getPessoas()+"\n"+
-                    aux.getLocal()+"\n"+
-                    aux.getData()+"\n"+
-                    aux.getHora()+"\n");
+                TextAreaConsulta.setText( aux.toString() );
                 txtInforConsultar.setText("Mídia encontrada com sucesso.");
                 editConsultar.setText("");
             }else{
@@ -717,19 +719,15 @@ public class InterfaceFotos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarMidiaMouseClicked
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
-        if ((editCaminho.getText().trim().equals("")   || editPessoas.getText().trim().equals("") ||
-            editDescricao.getText().trim().equals("")  || editCalendarDate == null ||
-            editFormatHora.getText().trim().equals("") || editFotografo.getText().trim().equals("")  ||
-            editLocal.getText().trim().equals("")      || editTitulo.getText().trim().equals("") )) {
+        if ((editCaminho.getText().trim().equals("")   || editIdioma.getText().trim().equals("")        || editAutores.getText().trim().equals("") ||
+            editDescricao.getText().trim().equals("")  || editFormatDuracao.getText().trim().equals("") || editGenero.getText().trim().equals("")  ||
+            editAno.getText().trim().equals("")        || editTitulo.getText().trim().equals("") )) {
 
             txtInforCadastrar.setText("Informe os campos corretamente.");
         }else{
 
-            String date = df.format(editCalendarDate.getDate());
-
-            if (gFotos.cadastrar(new Foto(editTitulo.getText(), editDescricao.getText(), editCaminho.getText(),
-                editFotografo.getText(), editPessoas.getText(), editLocal.getText(),
-                date, editFormatHora.getText()))){
+            if (gMusicas.cadastrar(new Musica(editTitulo.getText(), editDescricao.getText(), editCaminho.getText(),
+                editGenero.getText(), editIdioma.getText(), editAutores.getText(), editInterpretes.getText() , editFormatDuracao.getText(), Integer.parseInt(editAno.getText())))){
                 
                 JOptionPane.showMessageDialog(null, "Mídia inserida com sucesso.");
                 
@@ -751,7 +749,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
             
             String path = modelTabMidias.getValueAt(jTable.getSelectedRow(), 2).toString();
             
-            if (gFotos.remover(path)) {
+            if (gMusicas.remover(path)) {
                 modelTabMidias.removeRow(jTable.getSelectedRow());
                 JOptionPane.showMessageDialog(null, "Midia removida com sucesso.");
             }else{
@@ -767,10 +765,10 @@ public class InterfaceFotos extends javax.swing.JFrame {
             String tituloMidiaAntiga = modelTabMidias.getValueAt(jTable.getSelectedRow(), 0).toString();
             //Recuperando midia antiga selecionada
             
-            Midia midiaVelha = gFotos.consultar(tituloMidiaAntiga);
+            Midia midiaVelha = gMusicas.consultar(tituloMidiaAntiga);
             
             //Pegando midia nova
-            Midia midiaNova = new Foto(
+            Midia midiaNova = new Musica(
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 0).toString(),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 1).toString(),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 2).toString(),
@@ -778,10 +776,11 @@ public class InterfaceFotos extends javax.swing.JFrame {
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 4).toString(),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 5).toString(),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 6).toString(),
-                    modelTabMidias.getValueAt(jTable.getSelectedRow(), 7).toString());
+                    modelTabMidias.getValueAt(jTable.getSelectedRow(), 7).toString(),
+                    Integer.parseInt(modelTabMidias.getValueAt(jTable.getSelectedRow(), 8).toString()));
             
             if (midiaNova != null) {
-                if(gFotos.editar(midiaVelha, midiaNova)){
+                if(gMusicas.editar(midiaVelha, midiaNova)){
                     JOptionPane.showMessageDialog(null, "Mídia atualizada no banco de dados com sucesso.");
                 }else{
                     JOptionPane.showMessageDialog(null, "Falha ao atualizar mídia.");
@@ -806,11 +805,11 @@ public class InterfaceFotos extends javax.swing.JFrame {
         
         modelTabMidias.setRowCount(0);
         
-        for (Object midias : gFotos.exibir()) {
-            Foto aux = (Foto) midias;
-            Object[] dadosTable = { aux.getTitulo(),      aux.getDescricao(),  aux.getPath(),
-                aux.getFotografo(), aux.getPessoas(), aux.getLocal(),
-                aux.getData(),      aux.getHora()};
+        for (Object midias : gMusicas.exibir()) {
+            Musica aux = (Musica) midias;
+            Object[] dadosTable = { aux.getTitulo(), aux.getDescricao(), aux.getPath(),
+                aux.getGenero(), aux.getIdioma(), aux.getAutores(),
+                aux.getInterpretes(), aux.getDuracao() ,aux.getAno()};
             modelTabMidias.addRow(dadosTable);    
         }
     }//GEN-LAST:event_btnExibirMousePressed
@@ -885,11 +884,12 @@ public class InterfaceFotos extends javax.swing.JFrame {
         editCaminho.setText("");
         editTitulo.setText("");
         editDescricao.setText("");
-        editFotografo.setText("");
-        editPessoas.setText("");
-        editLocal.setText("");
-        editFormatHora.setText("");
-        editCalendarDate.cleanup();
+        editGenero.setText("");
+        editIdioma.setText("");
+        editAno.setText("");
+        editFormatDuracao.setText("");
+        editInterpretes.setText("");
+        editAutores.setText("");
         editConsultar.setText("");
 
         txtInforCadastrar.setText("Todos os campos foram limpos.");
@@ -918,14 +918,15 @@ public class InterfaceFotos extends javax.swing.JFrame {
     private javax.swing.JButton btnRemoverMidia;
     private javax.swing.JLabel btnSalvarArquivo;
     private javax.swing.JLabel btnVoltar;
-    private com.toedter.calendar.JDateChooser editCalendarDate;
+    private javax.swing.JTextField editAno;
+    private javax.swing.JTextField editAutores;
     private javax.swing.JTextField editCaminho;
     private javax.swing.JTextField editConsultar;
     private javax.swing.JTextField editDescricao;
-    private javax.swing.JFormattedTextField editFormatHora;
-    private javax.swing.JTextField editFotografo;
-    private javax.swing.JTextField editLocal;
-    private javax.swing.JTextField editPessoas;
+    private javax.swing.JFormattedTextField editFormatDuracao;
+    private javax.swing.JTextField editGenero;
+    private javax.swing.JTextField editIdioma;
+    private javax.swing.JTextField editInterpretes;
     private javax.swing.JTextField editTitulo;
     private javax.swing.JLabel imageLinhasTransparentes;
     private javax.swing.JLabel inforCadastrar;
@@ -947,20 +948,21 @@ public class InterfaceFotos extends javax.swing.JFrame {
     private javax.swing.JLabel lblCadastrar;
     private javax.swing.JLabel lblConsultar;
     private javax.swing.JLabel lblExibir;
+    private javax.swing.JLabel txtAno;
+    private javax.swing.JLabel txtAutores;
     private javax.swing.JLabel txtCaminho;
     private javax.swing.JLabel txtCatalogodeMidias;
-    private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtDescricao;
-    private javax.swing.JLabel txtFotografo;
-    private javax.swing.JLabel txtHora;
+    private javax.swing.JLabel txtDuracao;
+    private javax.swing.JLabel txtGenero;
     private javax.swing.JLabel txtInforCadastrar;
     private javax.swing.JLabel txtInforCarregar;
     private javax.swing.JLabel txtInforConsultar;
     private javax.swing.JLabel txtInforExibir;
-    private javax.swing.JLabel txtLocal;
-    private javax.swing.JLabel txtPessoas;
+    private javax.swing.JLabel txtInterpretes;
     private javax.swing.JLabel txtTitulo;
     private javax.swing.JLabel txtTituloPesquisa;
+    private javax.swing.JLabel txtidioma;
     // End of variables declaration//GEN-END:variables
     //</editor-fold>
 }

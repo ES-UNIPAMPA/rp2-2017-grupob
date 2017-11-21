@@ -14,7 +14,8 @@ import javax.swing.JFrame;
  * @author MICHAEL MARTINS
  */
 public final class InterfacePrincipal extends javax.swing.JFrame {
-    private InterfaceFotos frameFotos;
+    private InterfaceFotos interfaceFotos;
+    private InterfaceMusicas interfaceMusicas;
     private int xMousePressed;
     private int yMousePressed;
     /**
@@ -22,7 +23,8 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
      */
     public InterfacePrincipal() {
         initComponents();
-        frameFotos = new InterfaceFotos();
+        interfaceFotos = new InterfaceFotos();
+        interfaceMusicas = new InterfaceMusicas();
         gerarImagensInterface();
     }
 
@@ -194,11 +196,11 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Eventos de Clicks"> 
     private void btnFotosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFotosMouseClicked
-        frameFotos.setVisible(true);
+        interfaceFotos.setVisible(true);
     }//GEN-LAST:event_btnFotosMouseClicked
 
     private void btnMusicasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMusicasMouseClicked
-       
+       interfaceMusicas.setVisible(true);
     }//GEN-LAST:event_btnMusicasMouseClicked
 
     private void btnFilmesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFilmesMouseClicked

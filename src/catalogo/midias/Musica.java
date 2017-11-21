@@ -6,10 +6,10 @@ public class Musica extends Midia {
     private String idioma;
     private String autores;
     private String interpretes;
-    private int duracao;
+    private String duracao;
     private int ano;
 
-    public Musica(String titulo, String descricao, String path, String genero, String idioma, String autores, String interpretes, int duracao, int ano) {
+    public Musica(String titulo, String descricao, String path, String genero, String idioma, String autores, String interpretes, String duracao, int ano) {
         super(titulo, descricao,path);
         this.genero = genero;
         this.idioma = idioma;
@@ -53,11 +53,11 @@ public class Musica extends Midia {
         this.interpretes = interpretes;
     }
 
-    public int getDuracao() {
+    public String getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(int duracao) {
+    public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
 
@@ -71,7 +71,7 @@ public class Musica extends Midia {
 
     @Override
     public String toString() {
-        return super.toString() + genero + "\r\n" + idioma + "\r\n" + autores + "\r\n" 
+        return super.toFile() + genero + "\r\n" + idioma + "\r\n" + autores + "\r\n" 
                                 + interpretes + "\r\n" + duracao + "\r\n" + ano + "\r\n";
     }
     

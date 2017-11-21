@@ -35,8 +35,8 @@ public class GMusicas extends GerenciadorDeMidias {
         final Logger logger = Logger.getLogger(GMusicas.class.getName());
         FileHandler log = null;
         String pathMidia = null, titulo = null, descricao = null, genero = null, 
-               idioma = null, autores = null, interpretes = null;
-        int duracao = 0, ano = 0;
+               idioma = null, autores = null, interpretes = null, duracao = null;
+        int ano = 0;
         
         try {
             /* dizendo que existirá um arquivo para registros */
@@ -56,7 +56,7 @@ public class GMusicas extends GerenciadorDeMidias {
                 idioma   = buffered.readLine();
                 autores     = buffered.readLine();
                 interpretes      = buffered.readLine();
-                duracao      = buffered.read();
+                duracao      = buffered.readLine();
                 ano = buffered.read();
                 
                 //Inserindo midia do arquivo na coleção do software
