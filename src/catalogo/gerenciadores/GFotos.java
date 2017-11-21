@@ -79,28 +79,4 @@ public class GFotos extends GerenciadorDeMidias {
         }
     }
 
-    @Override
-    public boolean salvarArquivo(String path) {
-        try{
-            //O arquivo será salvo na pasta Gerenciadores em Desktop
-            OutputStream file = new FileOutputStream(path);
-            OutputStreamWriter fileWriter = new OutputStreamWriter(file, "UTF-8");
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-
-            for(Object midias : super.getMidias()){
-               bufferedWriter.write(midias.toString());
-               bufferedWriter.write("\r\n");
-            }
-            
-            bufferedWriter.close();
-            fileWriter.close();
-            file.close();
-            return true;
-
-        }catch(FileNotFoundException e){
-            return false;
-        }catch(IOException ex){
-            return false;
-        }
-    }  
 }

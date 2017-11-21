@@ -677,10 +677,12 @@ public class InterfaceFotos extends javax.swing.JFrame {
     private void btnSalvarArquivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarArquivoMouseClicked
         String path = getPathFile();
         
-        if (gFotos.salvarArquivo(path)) {
-            JOptionPane.showMessageDialog(null, "Arquivo salvo com sucesso.");
-        }else{
-            JOptionPane.showMessageDialog(null, "Falha ao salvar arquivo.");
+        if (path!= null) {
+            if (gFotos.salvarArquivo(path)) {
+                JOptionPane.showMessageDialog(null, "Arquivo salvo com sucesso.");
+            }else{
+                JOptionPane.showMessageDialog(null, "Falha ao salvar arquivo.");
+            }
         }
         
     }//GEN-LAST:event_btnSalvarArquivoMouseClicked

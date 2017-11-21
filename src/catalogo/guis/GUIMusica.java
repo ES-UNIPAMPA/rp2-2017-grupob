@@ -28,7 +28,7 @@ public class GUIMusica implements IMidiaUsuario{
         
         Midia midia = new Musica(titulo, descricao, path, genero, idioma, autores, interpretes, duracao, ano);
         gMusicas.cadastrar(midia);
-        if (gMusicas.salvarArquivo(path, midia)) {
+        if (gMusicas.salvarArquivo(path)) {
             System.out.println("Arquivo criado e escrito com sucesso!");
         }else{
             System.out.println("Falha ao criar arquivo!");

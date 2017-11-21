@@ -14,9 +14,9 @@ public abstract class Midia {
 
     public String toFile() {
         String retorno = "";
-        retorno += titulo + "\n";
-        retorno += path + "\n";
-        retorno += descricao + "\n";
+        retorno += titulo + "\r\n";
+        retorno += path + "\r\n";
+        retorno += descricao + "\r\n";
         return retorno;
     }
 
