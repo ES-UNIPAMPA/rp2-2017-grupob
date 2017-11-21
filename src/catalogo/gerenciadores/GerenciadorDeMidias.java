@@ -63,7 +63,7 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
     public boolean editar(Midia velho, Midia midia) {
         for (int i = 0; i < midias.size(); i++) {
             if (velho == midias.get(i)) {
-                midias.set(i, midia);
+                midias.set(i, midia);             
                 return true;
             }
         }
@@ -89,14 +89,15 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
                 buff.write(midia.toFile());
                 buff.write("\r\n");
             }
+            buff.flush();
             buff.close();
             outFile.close();
             return true;
         } catch (FileNotFoundException e) {
-            Logger.getLogger(GFotos.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(GerenciadorDeMidias.class.getName()).log(Level.SEVERE, null, e);
             return false;
         } catch (IOException | SecurityException ex) {
-            Logger.getLogger(GFotos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GerenciadorDeMidias.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
 

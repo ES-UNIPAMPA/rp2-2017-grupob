@@ -5,15 +5,16 @@ import catalogo.EntradasDoUsuarioComValidacao;
 public abstract class GUI implements IMidiaUsuario {
 
     EntradasDoUsuarioComValidacao es = new EntradasDoUsuarioComValidacao();
-    public void menu() {
+    public void menu(String nomeDaMidia) {
         boolean ficar = true;
         do {
-            System.out.print("O que você deseja fazer?");
-            System.out.println("1- Cadastrar um Filme");
-            System.out.println("2- Excluir um filme");
-            System.out.println("3- Consultar um filme");
-            System.out.println("4- Exibir todos os filmes");
-            System.out.println("5- Editar um filme");
+            carregar();
+            System.out.println("O que você deseja fazer?");
+            System.out.println("1- Cadastrar um(a) "+nomeDaMidia);
+            System.out.println("2- Excluir um(a) "+nomeDaMidia);
+            System.out.println("3- Consultar um(a) "+nomeDaMidia);
+            System.out.println("4- Exibir todos(as) os(as) "+nomeDaMidia+"s");
+            System.out.println("5- Editar um(a) "+nomeDaMidia);
             System.out.println("6 -Sair");
             int escolhaUsuario = es.nextInt(false);
             switch (escolhaUsuario) {

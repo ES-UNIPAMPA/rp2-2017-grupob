@@ -66,18 +66,18 @@ public class Principal {
                 break;
             case 7:
                 GUIPodcast guiPodcasts = new GUIPodcast();
-                guiPodcasts.menu();
+                guiPodcasts.menu("podcast");
                 break;
             case 8:
                 GUIFilmes guiFilmes = new GUIFilmes();
-                guiFilmes.menu();
+                guiFilmes.menu("filme");
                 break;
             case 9:
-                return true;
+                return false;
             default:
 
         }
-        return false;
+        return true;
     }
 
 }

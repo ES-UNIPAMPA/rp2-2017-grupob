@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GPodcasts extends GerenciadorDeMidias {
 
@@ -31,6 +33,7 @@ public class GPodcasts extends GerenciadorDeMidias {
 
     @Override
     public boolean carregarArquivo(String path) {
+        getMidias().clear();
         FileInputStream inFile;
         BufferedReader buff;
         Midia midia;
@@ -51,17 +54,16 @@ public class GPodcasts extends GerenciadorDeMidias {
                 } catch (NumberFormatException e) {
                     ano = 0;
                 }
-                midia = new Podcast(idioma, autores, ano, titulo, descricao, path);
+                midia = new Podcast(idioma, autores, ano, titulo, descricao, pathDaMidia);
                 getMidias().add(midia);
                 buff.readLine();
             }
             buff.close();
             inFile.close();
             return true;
-
         } catch (FileNotFoundException e) {
             return false;
-        } catch (IOException ex) {
+        } catch (IOException | NumberFormatException ex) {
             return false;
         }
 

@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GFilmes extends GerenciadorDeMidias {
 
@@ -31,14 +33,17 @@ public class GFilmes extends GerenciadorDeMidias {
 
     @Override
     public boolean carregarArquivo(String path) {
+        getMidias().clear();
         FileInputStream inFile;
         BufferedReader buff;
         Midia midia;
-        int numeroDeMidias;
+        int numeroDeMidias = 0;
         try {
-            inFile = new FileInputStream(new File(path));
+            File f = new File(path);
+            inFile = new FileInputStream(f);
             buff = new BufferedReader(new InputStreamReader(inFile, "UTF-8"));
             numeroDeMidias = Integer.parseInt(buff.readLine());
+
             for (int i = 0; i < numeroDeMidias; i++) {
                 String titulo = buff.readLine();
                 String pathDaMidia = buff.readLine();
@@ -60,10 +65,9 @@ public class GFilmes extends GerenciadorDeMidias {
             buff.close();
             inFile.close();
             return true;
-
         } catch (FileNotFoundException e) {
             return false;
-        } catch (IOException ex) {
+        } catch (IOException | NumberFormatException ex) {
             return false;
         }
 

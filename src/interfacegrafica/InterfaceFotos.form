@@ -640,9 +640,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Limpar Campos"/>
                     <Property name="toolTipText" type="java.lang.String" value="Clique para limpar todos os campos."/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Cursor em Forma de M&#xe3;o"/>
                     </Property>
@@ -669,9 +666,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Adicionar Foto"/>
                     <Property name="toolTipText" type="java.lang.String" value="Clique para adicionar m&#xed;dia na sua cole&#xe7;&#xe3;o."/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Cursor em Forma de M&#xe3;o"/>
                     </Property>
@@ -748,7 +742,14 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="bb" green="bb" red="bb" type="rgb"/>
                     </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="33" red="33" type="rgb"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.toedter.calendar.JDateChooser()"/>
+                  </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="150" y="320" width="190" height="40"/>
@@ -1095,9 +1096,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Remover M&#xed;dia"/>
                     <Property name="toolTipText" type="java.lang.String" value="Clique para remover uma m&#xed;dia"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Cursor em Forma de M&#xe3;o"/>
                     </Property>
@@ -1124,9 +1122,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Atualizar M&#xed;dias"/>
                     <Property name="toolTipText" type="java.lang.String" value="Clique para ordenar."/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Cursor em Forma de M&#xe3;o"/>
                     </Property>
@@ -1153,9 +1148,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Ordenar M&#xed;dias"/>
                     <Property name="toolTipText" type="java.lang.String" value="Clique para ordenar."/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Cursor em Forma de M&#xe3;o"/>
                     </Property>

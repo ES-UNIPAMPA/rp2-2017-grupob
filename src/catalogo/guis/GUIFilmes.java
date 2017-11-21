@@ -4,12 +4,12 @@ import catalogo.gerenciadores.GFilmes;
 import catalogo.gerenciadores.IGerenciador;
 import catalogo.midias.Filme;
 import catalogo.midias.Midia;
+import java.io.File;
 import java.util.ArrayList;
 
 public class GUIFilmes extends GUI {
 
     IGerenciador gerenciador = GFilmes.getInstance();
- 
 
     //esse
     @Override
@@ -35,6 +35,7 @@ public class GUIFilmes extends GUI {
         f = new Filme(genero, idioma, diretor, atoresPrincipais, ano, titulo, descricao, path);
         if (gerenciador.cadastrar(f)) {
             System.out.println("Filme cadastrado com sucesso");
+            salvar();
         } else {
             System.out.println("Erro ao cadastrar Filme");
         }
@@ -48,6 +49,7 @@ public class GUIFilmes extends GUI {
         String caminho = es.nextString();
         if (gerenciador.remover(caminho)) {
             System.out.println("Filme removida com sucesso");
+            salvar();
         } else {
             System.out.println("Filme inexistente");
         }
@@ -130,26 +132,29 @@ public class GUIFilmes extends GUI {
             novo = new Filme(genero, idioma, diretor, atoresPrincipais, ano, titulo, descricao, path);
             if (gerenciador.editar(velho, novo)) {
                 System.out.println("Filme editado com sucesso");
+                salvar();
             } else {
                 System.out.println("Erro ao editar o FIlme");
             }
         } else {
             System.out.println("Filme inexistente");
         }
+
     }
 
     @Override
     public void salvar() {
-            System.out.println("Salvando....");
-            gerenciador.salvarArquivo("/midias/filmes/filmes.txt");
-            System.out.println("Salvo");
+        System.out.println("Salvando....");
+        gerenciador.salvarArquivo("midias/filmes/filmes.txt");
+        System.out.println("Salvo");
     }
 
     @Override
     public void carregar() {
         System.out.println("Carregando...");
-        gerenciador.carregarArquivo("/midias/filmes/filmes.txt");
-        System.out.println("Carregado");    }
+        gerenciador.carregarArquivo("midias/filmes/filmes.txt");
+        System.out.println("Carregado");
+    }
 
     @Override
     public void ordenar() {

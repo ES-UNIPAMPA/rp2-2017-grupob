@@ -354,7 +354,6 @@ public class InterfaceFotos extends javax.swing.JFrame {
         btnLimparCampos.setForeground(new java.awt.Color(51, 51, 51));
         btnLimparCampos.setText("Limpar Campos");
         btnLimparCampos.setToolTipText("Clique para limpar todos os campos.");
-        btnLimparCampos.setBorder(null);
         btnLimparCampos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLimparCampos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -368,7 +367,6 @@ public class InterfaceFotos extends javax.swing.JFrame {
         btnAdd.setForeground(new java.awt.Color(51, 51, 51));
         btnAdd.setText("Adicionar Foto");
         btnAdd.setToolTipText("Clique para adicionar mídia na sua coleção.");
-        btnAdd.setBorder(null);
         btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -407,6 +405,8 @@ public class InterfaceFotos extends javax.swing.JFrame {
         jPCadastrar.add(InforCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 330, 20));
 
         editCalendarDate.setBackground(new java.awt.Color(187, 187, 187));
+        editCalendarDate.setForeground(new java.awt.Color(51, 51, 51));
+        editCalendarDate.setToolTipText("");
         jPCadastrar.add(editCalendarDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 190, 40));
 
         jTabConteudos.addTab("Cadastrar", jPCadastrar);
@@ -529,7 +529,6 @@ public class InterfaceFotos extends javax.swing.JFrame {
         btnRemoverMidia.setForeground(new java.awt.Color(51, 51, 51));
         btnRemoverMidia.setText("Remover Mídia");
         btnRemoverMidia.setToolTipText("Clique para remover uma mídia");
-        btnRemoverMidia.setBorder(null);
         btnRemoverMidia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRemoverMidia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -543,7 +542,6 @@ public class InterfaceFotos extends javax.swing.JFrame {
         btnAtualizarMidias.setForeground(new java.awt.Color(51, 51, 51));
         btnAtualizarMidias.setText("Atualizar Mídias");
         btnAtualizarMidias.setToolTipText("Clique para ordenar.");
-        btnAtualizarMidias.setBorder(null);
         btnAtualizarMidias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAtualizarMidias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -557,7 +555,6 @@ public class InterfaceFotos extends javax.swing.JFrame {
         btnOrdenarMidia1.setForeground(new java.awt.Color(51, 51, 51));
         btnOrdenarMidia1.setText("Ordenar Mídias");
         btnOrdenarMidia1.setToolTipText("Clique para ordenar.");
-        btnOrdenarMidia1.setBorder(null);
         btnOrdenarMidia1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnOrdenarMidia1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

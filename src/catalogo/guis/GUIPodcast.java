@@ -34,6 +34,7 @@ public class GUIPodcast extends GUI {
 
         if (gerenciador.cadastrar(p)) {
             System.out.println("Podcast cadastrado com sucesso");
+            salvar();
         } else {
             System.out.println("Erro ao cadastrar Podcast");
         }
@@ -47,6 +48,7 @@ public class GUIPodcast extends GUI {
         String caminho = es.nextString();
         if (gerenciador.remover(caminho)) {
             System.out.println("Midia removida com sucesso");
+            salvar();
         } else {
             System.out.println("Midia inexistente");
         }
@@ -119,6 +121,7 @@ public class GUIPodcast extends GUI {
             novo = new Podcast(idioma, autores, ano, titulo, descricao, path);
             if (gerenciador.editar(velho, novo)) {
                 System.out.println("Podcast editado com sucesso");
+                salvar();
             } else {
                 System.out.println("Erro ao editar o Podcast");
             }
@@ -130,14 +133,14 @@ public class GUIPodcast extends GUI {
     @Override
     public void salvar() {
         System.out.println("Salvando....");
-        gerenciador.salvarArquivo("/midias/podcasts/podcasts.txt");
+        gerenciador.salvarArquivo("midias/podcasts/podcasts.txt");
         System.out.println("Salvo");
     }
 
     @Override
     public void carregar() {
         System.out.println("Carregando...");
-        gerenciador.carregarArquivo("/midias/podcasts/podcasts.txt");
+        gerenciador.carregarArquivo("midias/podcasts/podcasts.txt");
         System.out.println("Carregado");
     }
 
