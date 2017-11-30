@@ -17,7 +17,7 @@ public class Podcast extends Midia {
 
     @Override
     public String toString() {
-        return super.toString() + ", idioma=" + idioma + ", autores=" + autores + ", ano=" + ano;
+        return super.toString() + "\n  Idioma=" + idioma + "\n  Autores=" + autores + "\n  Ano=" + ano+"\n";
     }
 
 
@@ -67,9 +67,9 @@ public class Podcast extends Midia {
     @Override
     public String toFile() {
         String retorno=super.toFile();
-        retorno+=idioma+"\n";
-        retorno+=autores+"\n";
-        retorno+=ano+"\n";
+        retorno+=idioma+"\r\n";
+        retorno+=autores+"\r\n";
+        retorno+=ano+"\r\n";
         return retorno;
     }
 

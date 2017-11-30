@@ -19,7 +19,7 @@ public class Filme extends Midia {
 
     @Override
     public String toString() {
-        return super.toString() + "genero=" + genero + ", idioma=" + idioma + ", diretor=" + diretor + ", atoresPrincipais=" + atoresPrincipais + ", ano=" + ano;
+        return super.toString() + "\n  Genero: " + genero + "\n  Idioma: " + idioma + "\n  Diretor: " + diretor + "\n  AtoresPrincipais: " + atoresPrincipais + "\n  Ano: " + ano +"\n";
     }
 
     /**
@@ -95,11 +95,11 @@ public class Filme extends Midia {
     @Override
     public String toFile() {
         String retorno = super.toFile();
-        retorno += genero + "\n";
-        retorno += idioma + "\n";
-        retorno += atoresPrincipais + "\n";
-        retorno += diretor + "\n";
-        retorno += ano + "\n";
+        retorno += genero + "\r\n";
+        retorno += idioma + "\r\n";
+        retorno += atoresPrincipais + "\r\n";
+        retorno += diretor + "\r\n";
+        retorno += ano + "\r\n";
         return retorno;
     }
     

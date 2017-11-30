@@ -69,10 +69,16 @@ public class Musica extends Midia {
         this.ano = ano;
     }
 
+    
     @Override
-    public String toString() {
+    public String toFile() {
         return super.toFile() + genero + "\r\n" + idioma + "\r\n" + autores + "\r\n" 
                                 + interpretes + "\r\n" + duracao + "\r\n" + ano + "\r\n";
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\n  Genero: " + genero + "\n  Idioma: " + idioma + "\n  Autores: " + autores + "\n  Interpretes: " + interpretes + "\n  Duracao: " + duracao + "\n  Ano=" + ano +"\n";
     }
     
     

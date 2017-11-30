@@ -22,7 +22,7 @@ public abstract class Midia {
 
     @Override
     public String toString() {
-        return "Titulo=" + titulo + ", descricao=" + descricao + ", caminho=" + path;
+        return "Titulo: " + titulo + "\n  Descricao: " + descricao + "\n  Caminho: " + path;
     }
 
     public String getTitulo() {
