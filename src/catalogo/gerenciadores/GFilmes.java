@@ -1,5 +1,6 @@
 package catalogo.gerenciadores;
 
+import catalogo.Pessoa;
 import catalogo.midias.Filme;
 import catalogo.midias.Midia;
 import catalogo.midias.Podcast;
@@ -28,7 +29,20 @@ public class GFilmes extends GerenciadorDeMidias {
 
     @Override
     public void ordenar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean houveTroca;
+        do {
+            List<Midia> lista = getMidias();
+            houveTroca = false;
+            for (int i = 0; i < lista.size() - 1; i++) {
+                if (lista.get(i).getTitulo().compareTo(lista.get(i + 1).getTitulo())<0) {
+                    Midia temp = lista.get(i+1);
+                    lista.set(i, lista.get(i+1));
+                    lista.set(i+1, temp);
+                    houveTroca=true;
+                }
+            }
+        } while (houveTroca);
+
     }
 
     @Override
@@ -58,7 +72,7 @@ public class GFilmes extends GerenciadorDeMidias {
                 } catch (NumberFormatException e) {
                     ano = 0;
                 }
-                midia = new Filme(genero, idioma, diretor, atoresPrincipais, ano, titulo, descricao, pathDaMidia);
+                midia = new Filme(genero, idioma, Pessoa.getPessoa(diretor), Pessoa.getPessoas(atoresPrincipais), ano, titulo, descricao, pathDaMidia);
                 getMidias().add(midia);
                 buff.readLine();
             }

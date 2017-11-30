@@ -5,6 +5,7 @@
  */
 package interfacegrafica;
 
+import catalogo.Pessoa;
 import catalogo.gerenciadores.GFilmes;
 import catalogo.gerenciadores.IGerenciador;
 import catalogo.midias.Filme;
@@ -23,16 +24,16 @@ import javax.swing.table.DefaultTableModel;
  * @author MICHAEL MARTINS
  */
 public class InterfaceFilmes extends javax.swing.JFrame {
-    
+
     DateFormat df = DateFormat.getDateInstance();
-    
+
     private JFileChooser chooser = new JFileChooser();
-    
+
     private int xMousePressed;
     private int yMousePressed;
     private IGerenciador gFilmes = null;
     private DefaultTableModel modelTabMidias;
-    
+
     /**
      * Creates new form Home
      */
@@ -42,7 +43,7 @@ public class InterfaceFilmes extends javax.swing.JFrame {
         gerarImagensInterface();
         modelTabMidias = (DefaultTableModel) jTable.getModel();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -724,9 +725,9 @@ public class InterfaceFilmes extends javax.swing.JFrame {
 
             txtInforCadastrar.setText("Informe os campos corretamente.");
         } else {
-            
-            Filme novo  = new Filme(editGenero.getText(), editIdioma.getText(),
-                    editDiretor.getText(), editAtores.getText(), Integer.parseInt(editAno.getText()), 
+
+            Filme novo = new Filme(editGenero.getText(), editIdioma.getText(),
+                    Pessoa.getPessoa(editDiretor.getText()), Pessoa.getPessoas(editAtores.getText()), Integer.parseInt(editAno.getText()),
                     editTitulo.getText(), editDescricao.getText(), editCaminho.getText());
 
             if (gFilmes.cadastrar(novo)) {
@@ -770,13 +771,10 @@ public class InterfaceFilmes extends javax.swing.JFrame {
 
             //Pegando midia nova
             Midia midiaNova = new Filme(
-                    
-                    
-                    
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 3).toString(),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 5).toString(),
-                    modelTabMidias.getValueAt(jTable.getSelectedRow(), 6).toString(),
-                    modelTabMidias.getValueAt(jTable.getSelectedRow(), 7).toString(),
+                    Pessoa.getPessoa(modelTabMidias.getValueAt(jTable.getSelectedRow(), 6).toString()),
+                    Pessoa.getPessoas(modelTabMidias.getValueAt(jTable.getSelectedRow(), 7).toString()),
                     Integer.valueOf(modelTabMidias.getValueAt(jTable.getSelectedRow(), 4).toString()),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 0).toString(),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 1).toString(),
@@ -807,7 +805,7 @@ public class InterfaceFilmes extends javax.swing.JFrame {
         jTabConteudos.setSelectedIndex(2);
 
         modelTabMidias.setRowCount(0);
-       // gFilmes.ordenar();
+        // gFilmes.ordenar();
         for (Object midias : gFilmes.exibir()) {
             Filme aux = (Filme) midias;
             Object[] dadosTable = {aux.getTitulo(), aux.getDescricao(), aux.getPath(),

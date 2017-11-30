@@ -1,14 +1,16 @@
 package catalogo.midias;
 
+import catalogo.Pessoa;
+
 public class Podcast extends Midia {
 
     private String idioma;
 
-    private String autores;
+    private Pessoa[] autores;
 
     private int ano;
 
-    public Podcast(String idioma, String autores, int ano, String titulo, String descricao, String path) {
+    public Podcast(String idioma, Pessoa[] autores, int ano, String titulo, String descricao, String path) {
         super(titulo, descricao, path);
         this.idioma = idioma;
         this.autores = autores;
@@ -39,14 +41,14 @@ public class Podcast extends Midia {
     /**
      * @return the autores
      */
-    public String getAutores() {
+    public Pessoa[] getAutores() {
         return autores;
     }
 
     /**
      * @param autores the autores to set
      */
-    public void setAutores(String autores) {
+    public void setAutores(Pessoa[] autores) {
         this.autores = autores;
     }
 

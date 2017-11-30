@@ -1,6 +1,7 @@
 package catalogo.guis;
 
 import catalogo.EntradasDoUsuarioComValidacao;
+import catalogo.Pessoa;
 import catalogo.gerenciadores.GPodcasts;
 import catalogo.gerenciadores.IGerenciador;
 import catalogo.midias.Midia;
@@ -30,7 +31,7 @@ public class GUIPodcast extends GUI {
         System.out.println("Digite o idioma do Podcast");
         String idioma = es.nextString();
 
-        p = new Podcast(idioma, autores, ano, titulo, descricao, path);
+        p = new Podcast(idioma, Pessoa.getPessoas(autores), ano, titulo, descricao, path);
 
         if (gerenciador.cadastrar(p)) {
             System.out.println("Podcast cadastrado com sucesso");
@@ -109,8 +110,9 @@ public class GUIPodcast extends GUI {
             }
             System.out.println("Digite os novos autores do Podcast, separado por ponto e virgula[;] [tecle ENTER sem digitar nada para pular]");
             String autores = es.nextString();
+            Pessoa[] autoresP=Pessoa.getPessoas(autores);
             if (autores.equals("")) {
-                autores = velho.getAutores();
+                autoresP = velho.getAutores();
             }
             System.out.println("Digite o novo idioma do Podcast [tecle ENTER sem digitar nada para pular]");
             String idioma = es.nextString();
@@ -118,7 +120,7 @@ public class GUIPodcast extends GUI {
                 idioma = velho.getIdioma();
             }
 
-            novo = new Podcast(idioma, autores, ano, titulo, descricao, path);
+            novo = new Podcast(idioma, autoresP, ano, titulo, descricao, path);
             if (gerenciador.editar(velho, novo)) {
                 System.out.println("Podcast editado com sucesso");
                 salvar();

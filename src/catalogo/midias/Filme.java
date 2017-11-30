@@ -1,14 +1,16 @@
 package catalogo.midias;
 
+import catalogo.Pessoa;
+
 public class Filme extends Midia {
 
     private String genero;
     private String idioma;
-    private String diretor;
-    private String atoresPrincipais;
+    private Pessoa diretor;
+    private Pessoa[] atoresPrincipais;
     private int ano;
 
-    public Filme(String genero, String idioma, String diretor, String atoresPrincipais, int ano, String titulo, String descricao, String path) {
+    public Filme(String genero, String idioma, Pessoa diretor, Pessoa[] atoresPrincipais, int ano, String titulo, String descricao, String path) {
         super(titulo, descricao, path);
         this.genero = genero;
         this.idioma = idioma;
@@ -53,28 +55,28 @@ public class Filme extends Midia {
     /**
      * @return the diretor
      */
-    public String getDiretor() {
+    public Pessoa getDiretor() {
         return diretor;
     }
 
     /**
      * @param diretor the diretor to set
      */
-    public void setDiretor(String diretor) {
+    public void setDiretor(Pessoa diretor) {
         this.diretor = diretor;
     }
 
     /**
      * @return the atoresPrincipais
      */
-    public String getAtoresPrincipais() {
+    public Pessoa[] getAtoresPrincipais() {
         return atoresPrincipais;
     }
 
     /**
      * @param atoresPrincipais the atoresPrincipais to set
      */
-    public void setAtoresPrincipais(String atoresPrincipais) {
+    public void setAtoresPrincipais(Pessoa[] atoresPrincipais) {
         this.atoresPrincipais = atoresPrincipais;
     }
 

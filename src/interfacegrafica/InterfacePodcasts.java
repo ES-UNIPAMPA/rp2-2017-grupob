@@ -5,6 +5,7 @@
  */
 package interfacegrafica;
 
+import catalogo.Pessoa;
 import catalogo.gerenciadores.GFilmes;
 import catalogo.gerenciadores.GPodcasts;
 import catalogo.gerenciadores.IGerenciador;
@@ -496,11 +497,11 @@ public class InterfacePodcasts extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Título", "Descricão", "Caminho", "Genero", "Ano", "Idioma", "Diretor", "Atores"
+                "Título", "Descricão", "Caminho", "Idioma", "Autores", "Ano"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -707,7 +708,7 @@ public class InterfacePodcasts extends javax.swing.JFrame {
             txtInforCadastrar.setText("Informe os campos corretamente.");
         } else {
 
-            Podcast novo = new Podcast(editIdioma.getText(), editAutores.getText(), Integer.parseInt(editAno.getText()), editTitulo.getText(), editDescricao.getText(), editCaminho.getText());
+            Podcast novo = new Podcast(editIdioma.getText(), Pessoa.getPessoas(editAutores.getText()), Integer.parseInt(editAno.getText()), editTitulo.getText(), editDescricao.getText(), editCaminho.getText());
 
             if (gPodcasts.cadastrar(novo)) {
 
@@ -749,12 +750,10 @@ public class InterfacePodcasts extends javax.swing.JFrame {
             Midia midiaVelha = gPodcasts.consultar(tituloMidiaAntiga);
 
             //Pegando midia nova
-            Midia midiaNova = new Filme(
+            Midia midiaNova = new Podcast(
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 3).toString(),
-                    modelTabMidias.getValueAt(jTable.getSelectedRow(), 5).toString(),
-                    modelTabMidias.getValueAt(jTable.getSelectedRow(), 6).toString(),
-                    modelTabMidias.getValueAt(jTable.getSelectedRow(), 7).toString(),
-                    Integer.valueOf(modelTabMidias.getValueAt(jTable.getSelectedRow(), 4).toString()),
+                    Pessoa.getPessoas(modelTabMidias.getValueAt(jTable.getSelectedRow(), 4).toString()),
+                    Integer.parseInt(modelTabMidias.getValueAt(jTable.getSelectedRow(), 5).toString()),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 0).toString(),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 1).toString(),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 2).toString());

@@ -1,5 +1,6 @@
 package catalogo.gerenciadores;
 
+import catalogo.Pessoa;
 import catalogo.midias.Filme;
 import catalogo.midias.Midia;
 import catalogo.midias.Podcast;
@@ -28,11 +29,21 @@ public class GPodcasts extends GerenciadorDeMidias {
 
     @Override
     public void ordenar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Midia> lista = getMidias();
+        for (int pivo = 1; pivo < lista.size(); pivo++) {
+            int i = pivo;
+            while (i > 0 && lista.get(i - 1).getTitulo().compareTo(lista.get(i).getTitulo()) > 0) {
+                Midia temp = lista.get(i - 1);
+                lista.set(i - 1, lista.get(i));
+                lista.set(i, temp);
+                i--;
+            }
+        }
     }
 
     @Override
-    public boolean carregarArquivo(String path) {
+    public boolean carregarArquivo(String path
+    ) {
         getMidias().clear();
         FileInputStream inFile;
         BufferedReader buff;
@@ -54,7 +65,7 @@ public class GPodcasts extends GerenciadorDeMidias {
                 } catch (NumberFormatException e) {
                     ano = 0;
                 }
-                midia = new Podcast(idioma, autores, ano, titulo, descricao, pathDaMidia);
+                midia = new Podcast(idioma, Pessoa.getPessoas(autores), ano, titulo, descricao, pathDaMidia);
                 getMidias().add(midia);
                 buff.readLine();
             }
