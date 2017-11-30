@@ -1,7 +1,6 @@
 package catalogo;
 
 import catalogo.guis.GUI;
-import catalogo.guis.GUIAudioLivros;
 import catalogo.guis.GUIFilmes;
 import catalogo.guis.GUIFotos;
 import catalogo.guis.GUIMusica;
@@ -23,26 +22,15 @@ public class Principal {
 
     private boolean menuPrincipal() {
         System.out.println("Escolha o que você deseja utilizar: ");
-        System.out.println("1- AudioLivros");
-        System.out.println("2- Ebook");
-        System.out.println("3- Fotos");
-        System.out.println("4- Jogos");
-        System.out.println("5- Música");
-        System.out.println("6- Partitura Musical");
-        System.out.println("7 -Podcast");
-        System.out.println("8- Filme");
-        System.out.println("9- Sair");
+        System.out.println("1- Fotos");
+        System.out.println("2- Música");
+        System.out.println("3 -Podcast");
+        System.out.println("4- Filme");
+        System.out.println("5- Sair");
         EntradasDoUsuarioComValidacao es = new EntradasDoUsuarioComValidacao();
         int escolhaUsuario = es.nextInt(false);
         switch (escolhaUsuario) {
             case 1:
-                GUIAudioLivros guialdiolivros = new GUIAudioLivros();
-                guialdiolivros.menu();
-                break;
-            case 2:
-                // GUIEBook guiebook = new GUIEBook();
-                break;
-            case 3:
                 //Linha abaixo apenas para teste
                 try {
                     guiFotos.cadastro();
@@ -50,10 +38,7 @@ public class Principal {
                     System.out.println(e.getMessage());
                 }
                 break;
-            case 4:
-                //GUIJOgos guijogos = new GUIJogos();
-                break;
-            case 5:
+            case 2:
                 //Linha abaixo apenas para teste
                 try {
                     guiMusica.cadastro();
@@ -61,18 +46,15 @@ public class Principal {
                     System.out.println(e.getMessage());
                 }
                 break;
-            case 6:
-                //GUIPartituraMusical guipartituramuscal = new GUIPartituraMusical();
-                break;
-            case 7:
+            case 3:
                 GUIPodcast guiPodcasts = new GUIPodcast();
                 guiPodcasts.menu("podcast");
                 break;
-            case 8:
+            case 4:
                 GUIFilmes guiFilmes = new GUIFilmes();
                 guiFilmes.menu("filme");
                 break;
-            case 9:
+            case 5:
                 return false;
             default:
 

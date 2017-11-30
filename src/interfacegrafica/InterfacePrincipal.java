@@ -16,6 +16,8 @@ import javax.swing.JFrame;
 public final class InterfacePrincipal extends javax.swing.JFrame {
     private InterfaceFotos interfaceFotos;
     private InterfaceMusicas interfaceMusicas;
+    private InterfaceFilmes interfaceFilmes;
+    private InterfacePodcasts interfacePodcasts;
     private int xMousePressed;
     private int yMousePressed;
     /**
@@ -25,6 +27,8 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
         initComponents();
         interfaceFotos = new InterfaceFotos();
         interfaceMusicas = new InterfaceMusicas();
+        interfaceFilmes = new InterfaceFilmes();
+        interfacePodcasts =  new InterfacePodcasts();
         gerarImagensInterface();
     }
 
@@ -204,7 +208,7 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMusicasMouseClicked
 
     private void btnFilmesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFilmesMouseClicked
-
+        interfaceFilmes.setVisible(true);
     }//GEN-LAST:event_btnFilmesMouseClicked
 
     private void btnEbookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEbookMouseClicked
