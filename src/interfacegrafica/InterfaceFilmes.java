@@ -808,7 +808,7 @@ public class InterfaceFilmes extends javax.swing.JFrame {
         jTabConteudos.setSelectedIndex(2);
 
         modelTabMidias.setRowCount(0);
-        // gFilmes.ordenar();
+        gFilmes.ordenar();
         for (Object midias : gFilmes.exibir()) {
             Filme aux = (Filme) midias;
             Object[] dadosTable = {aux.getTitulo(), aux.getDescricao(), aux.getPath(),

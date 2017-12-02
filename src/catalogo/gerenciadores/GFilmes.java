@@ -33,8 +33,8 @@ public class GFilmes extends GerenciadorDeMidias {
             List<Midia> lista = getMidias();
             houveTroca = false;
             for (int i = 0; i < lista.size() - 1; i++) {
-                if (lista.get(i).getTitulo().compareTo(lista.get(i + 1).getTitulo())<0) {
-                    Midia temp = lista.get(i+1);
+                if (lista.get(i).getTitulo().compareTo(lista.get(i + 1).getTitulo())>0) {
+                    Midia temp = lista.get(i);
                     lista.set(i, lista.get(i+1));
                     lista.set(i+1, temp);
                     houveTroca=true;

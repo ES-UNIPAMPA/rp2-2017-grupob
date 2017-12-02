@@ -737,25 +737,6 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="com.toedter.calendar.JDateChooser" name="editCalendarDate">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="bb" green="bb" red="bb" type="rgb"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="33" green="33" red="33" type="rgb"/>
-                    </Property>
-                    <Property name="toolTipText" type="java.lang.String" value=""/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.toedter.calendar.JDateChooser()"/>
-                  </AuxValues>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="150" y="320" width="190" height="40"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanelConsultar">

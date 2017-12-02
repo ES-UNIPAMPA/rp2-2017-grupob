@@ -5,11 +5,8 @@
  */
 package interfacegrafica;
 
-import catalogo.gerenciadores.GFilmes;
 import catalogo.gerenciadores.GPodcasts;
 import catalogo.gerenciadores.IGerenciador;
-import catalogo.midias.Filme;
-import catalogo.midias.Foto;
 import catalogo.midias.Midia;
 import catalogo.midias.Podcast;
 import java.io.File;
@@ -383,7 +380,11 @@ public class InterfacePodcasts extends javax.swing.JFrame {
         jPCadastrar.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, -1, -1));
 
         editAno.setBackground(new java.awt.Color(187, 187, 187));
-        editAno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        try {
+            editAno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         editAno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editAnoActionPerformed(evt);
@@ -782,12 +783,11 @@ public class InterfacePodcasts extends javax.swing.JFrame {
         jTabConteudos.setSelectedIndex(2);
 
         modelTabMidias.setRowCount(0);
-        // gFilmes.ordenar();
+        gPodcasts.ordenar();
         for (Object midias : gPodcasts.exibir()) {
-            Filme aux = (Filme) midias;
+            Podcast aux = (Podcast) midias;
             Object[] dadosTable = {aux.getTitulo(), aux.getDescricao(), aux.getPath(),
-                aux.getGenero(), aux.getAno(), aux.getIdioma(),
-                aux.getDiretor(), aux.getAtoresPrincipais()};
+                aux.getIdioma(),aux.getAutores(), aux.getAno()};
             modelTabMidias.addRow(dadosTable);
         }
     }//GEN-LAST:event_btnExibirMousePressed
