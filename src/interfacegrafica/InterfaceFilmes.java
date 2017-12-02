@@ -401,7 +401,11 @@ public class InterfaceFilmes extends javax.swing.JFrame {
         jPCadastrar.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
 
         editAno.setBackground(new java.awt.Color(187, 187, 187));
-        editAno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        try {
+            editAno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         editAno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editAnoActionPerformed(evt);

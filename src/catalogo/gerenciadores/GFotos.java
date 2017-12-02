@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 //Imports para logs
@@ -27,7 +28,26 @@ public class GFotos extends GerenciadorDeMidias {
     //COMORTAMENTOS E MÉTODOS
     @Override
     public void ordenar() {
-        
+        //Ordenação por InsertionSort
+        //List velha
+//        List<Midia> listaVelha = getMidias();
+//        
+//        //List Nova para receber a ordenação
+//        List<Midia> listNova = new ArrayList<>();
+//        
+//        for (Object object : listaVelha) {
+//            Midia aux = (Midia) object;
+//            listNova.add(aux);    
+//        }
+        List<Midia> listNova = getMidias();
+        int i, j;
+        for (i = 1; i < listNova.size(); i++) {
+            Midia aux = listNova.get(i);
+            for (j = i - 1; (j >= 0) && (listNova.get(j).getTitulo().compareToIgnoreCase(aux.getTitulo()) <= 0); j--) {
+                listNova.set(j+1, listNova.get(j));
+            }
+            listNova.set(j+1, aux);
+        }
     }
 
     @Override
@@ -38,8 +58,9 @@ public class GFotos extends GerenciadorDeMidias {
         String pathMidia = null, titulo = null, descricao = null,fotografo = null, 
                pessoas = null, local = null, data = null, hora = null;
         Midia midia = null;
+        int quantidadeMidias = 0;
         
-        
+                                             
         try {
             /* dizendo que existirá um arquivo para registros */
             log = new FileHandler("log.txt");
@@ -49,7 +70,10 @@ public class GFotos extends GerenciadorDeMidias {
             FileReader reader = new FileReader(file);
             BufferedReader buffered = new BufferedReader(reader);
             
-            while((titulo = buffered.readLine()) != null){
+            quantidadeMidias = Integer.parseInt(buffered.readLine());
+            
+            for (int i = 0; i < quantidadeMidias ; i++) {
+                titulo = buffered.readLine();
                 descricao = buffered.readLine();
                 pathMidia = buffered.readLine();
                 fotografo = buffered.readLine();
@@ -57,11 +81,10 @@ public class GFotos extends GerenciadorDeMidias {
                 local     = buffered.readLine();
                 data      = buffered.readLine();
                 hora      = buffered.readLine();
-                
                 //Inserindo midia do arquivo na coleção do software
                 midia = new Foto(titulo, descricao, pathMidia, fotografo, pessoas, local, data, hora);
 
-                super.cadastrar(midia);
+                getMidias().add(midia);
                 
                 buffered.readLine();
             }

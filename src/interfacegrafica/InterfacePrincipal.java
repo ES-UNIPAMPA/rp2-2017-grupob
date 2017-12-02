@@ -51,15 +51,11 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
         btnFotos = new javax.swing.JLabel();
         btnMusicas = new javax.swing.JLabel();
         btnFilmes = new javax.swing.JLabel();
-        btnEbook = new javax.swing.JLabel();
-        btnJogos = new javax.swing.JLabel();
         btnPodcast = new javax.swing.JLabel();
-        btnPartiturasMusicais = new javax.swing.JLabel();
-        btnAudioLivro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setModalExclusionType(null);
+        setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,7 +120,7 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
                 btnFotosMouseClicked(evt);
             }
         });
-        jPanelMenus.add(btnFotos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 131, 130));
+        jPanelMenus.add(btnFotos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 131, 130));
 
         btnMusicas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMusicas.setName("Gerenciador de Musicas"); // NOI18N
@@ -133,7 +129,7 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
                 btnMusicasMouseClicked(evt);
             }
         });
-        jPanelMenus.add(btnMusicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 131, 130));
+        jPanelMenus.add(btnMusicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 131, 130));
 
         btnFilmes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnFilmes.setName("Gerenciador de Filmes"); // NOI18N
@@ -142,25 +138,7 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
                 btnFilmesMouseClicked(evt);
             }
         });
-        jPanelMenus.add(btnFilmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 131, 130));
-
-        btnEbook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEbook.setName("Gerenciador de Ebook"); // NOI18N
-        btnEbook.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEbookMouseClicked(evt);
-            }
-        });
-        jPanelMenus.add(btnEbook, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, 131, 130));
-
-        btnJogos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnJogos.setName("Gerenciador de Jogos"); // NOI18N
-        btnJogos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnJogosMouseClicked(evt);
-            }
-        });
-        jPanelMenus.add(btnJogos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 131, 130));
+        jPanelMenus.add(btnFilmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 131, 130));
 
         btnPodcast.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPodcast.setName("Gerenciador de Podcast"); // NOI18N
@@ -169,25 +147,7 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
                 btnPodcastMouseClicked(evt);
             }
         });
-        jPanelMenus.add(btnPodcast, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 131, 130));
-
-        btnPartiturasMusicais.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPartiturasMusicais.setName("Gerenciador de Partituras Musicais"); // NOI18N
-        btnPartiturasMusicais.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnPartiturasMusicaisMouseClicked(evt);
-            }
-        });
-        jPanelMenus.add(btnPartiturasMusicais, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 131, 130));
-
-        btnAudioLivro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAudioLivro.setName("Gerenciador de AudioLivro"); // NOI18N
-        btnAudioLivro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAudioLivroMouseClicked(evt);
-            }
-        });
-        jPanelMenus.add(btnAudioLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 270, 131, 130));
+        jPanelMenus.add(btnPodcast, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 131, 130));
 
         jPanelHome.add(jPanelMenus, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1000, 440));
 
@@ -211,26 +171,6 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
         interfaceFilmes.setVisible(true);
     }//GEN-LAST:event_btnFilmesMouseClicked
 
-    private void btnEbookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEbookMouseClicked
-
-    }//GEN-LAST:event_btnEbookMouseClicked
-
-    private void btnJogosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnJogosMouseClicked
-
-    }//GEN-LAST:event_btnJogosMouseClicked
-
-    private void btnPodcastMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPodcastMouseClicked
-
-    }//GEN-LAST:event_btnPodcastMouseClicked
-
-    private void btnPartiturasMusicaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPartiturasMusicaisMouseClicked
-
-    }//GEN-LAST:event_btnPartiturasMusicaisMouseClicked
-
-    private void btnAudioLivroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAudioLivroMouseClicked
-
-    }//GEN-LAST:event_btnAudioLivroMouseClicked
-
     private void btnMinimizedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizedMouseClicked
         // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
@@ -251,18 +191,18 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         System.exit(0);
     }//GEN-LAST:event_btnExitMouseClicked
+
+    private void btnPodcastMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPodcastMouseClicked
+        interfacePodcasts.setVisible(true);
+    }//GEN-LAST:event_btnPodcastMouseClicked
     //</editor-fold>
     
     public void gerarImagensInterface(){
         String pathCatalogo = System.getProperty("user.dir");
         
-        btnAudioLivro.setIcon(new ImageIcon(pathCatalogo + "/src/interfacegrafica/imagens/btnAudioLivro.png"));
-        btnEbook.setIcon(new ImageIcon(pathCatalogo + "/src/interfacegrafica/imagens/btnEbook.png"));
         btnFilmes.setIcon(new ImageIcon(pathCatalogo + "/src/interfacegrafica/imagens/btnFilmes.png"));
         btnFotos.setIcon(new ImageIcon(pathCatalogo + "/src/interfacegrafica/imagens/btnFotos.png"));
-        btnJogos.setIcon(new ImageIcon(pathCatalogo + "/src/interfacegrafica/imagens/btnJogos.png"));
         btnMusicas.setIcon(new ImageIcon(pathCatalogo + "/src/interfacegrafica/imagens/btnMusicas.png"));
-        btnPartiturasMusicais.setIcon(new ImageIcon(pathCatalogo + "/src/interfacegrafica/imagens/btnPartiturasMusicais.png"));
         btnPodcast.setIcon(new ImageIcon(pathCatalogo + "/src/interfacegrafica/imagens/btnPodcast.png"));
         imageLinhasTransparentes.setIcon(new ImageIcon(pathCatalogo + "/src/interfacegrafica/imagens/imageLinhasTransparentes.png"));
     }
@@ -300,15 +240,11 @@ public final class InterfacePrincipal extends javax.swing.JFrame {
     
     // <editor-fold defaultstate="collapsed" desc="variaveis declaradas pela interface">
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnAudioLivro;
-    private javax.swing.JLabel btnEbook;
     private javax.swing.JLabel btnExit;
     private javax.swing.JLabel btnFilmes;
     private javax.swing.JLabel btnFotos;
-    private javax.swing.JLabel btnJogos;
     private javax.swing.JLabel btnMinimized;
     private javax.swing.JLabel btnMusicas;
-    private javax.swing.JLabel btnPartiturasMusicais;
     private javax.swing.JLabel btnPodcast;
     private javax.swing.JLabel imageLinhasTransparentes;
     public javax.swing.JPanel jPanelHome;

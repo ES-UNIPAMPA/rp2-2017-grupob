@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.SingleSelectionModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -43,6 +44,7 @@ public class InterfaceMusicas extends javax.swing.JFrame {
         gMusicas = new GMusicas(new ArrayList<>());
         gerarImagensInterface();
         modelTabMidias = (DefaultTableModel) jTable.getModel();
+        jTable.setRowSorter(new TableRowSorter(modelTabMidias));
     }
     
     @SuppressWarnings("unchecked")

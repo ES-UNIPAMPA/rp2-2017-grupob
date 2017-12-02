@@ -14,7 +14,8 @@ public class GUIMusica implements IMidiaUsuario{
     public void cadastro() {
         String titulo, descricao, path;
         String genero, idioma, autores, interpretes;
-        int duracao, ano;
+        String duracao;
+        int ano;
         
         System.out.println("Nome do arquivo: "); path = scanner.nextLine();
         System.out.println("Titulo: ");         titulo = scanner.nextLine();
@@ -23,8 +24,8 @@ public class GUIMusica implements IMidiaUsuario{
         System.out.println("Idioma : ");        idioma = scanner.nextLine();
         System.out.println("Autores : ");       autores = scanner.nextLine();
         System.out.println("Interpretes : ");   interpretes = scanner.nextLine();
-        System.out.println("Duração : ");   duracao = Integer.parseInt(scanner.nextLine());
-        System.out.println("Ano : ");   ano = Integer.parseInt(scanner.nextLine());
+        System.out.println("Duração : ");       duracao = scanner.nextLine();
+        System.out.println("Ano : ");           ano = Integer.parseInt(scanner.nextLine());
         
         Midia midia = new Musica(titulo, descricao, path, genero, idioma, autores, interpretes, duracao, ano);
         gMusicas.cadastrar(midia);

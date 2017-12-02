@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.SingleSelectionModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -46,6 +47,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
         gFotos = new GFotos(new ArrayList<>());
         gerarImagensInterface();
         modelTabMidias = (DefaultTableModel) jTable.getModel();
+        jTable.setRowSorter(new TableRowSorter(modelTabMidias));
     }
     
     @SuppressWarnings("unchecked")
@@ -700,14 +702,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
             Foto aux = (Foto) gFotos.consultar(editConsultar.getText());
 
             if (aux != null) {
-                TextAreaConsulta.setText( aux.getPath()+"\n"+
-                    aux.getTitulo()+"\n"+
-                    aux.getDescricao()+"\n"+
-                    aux.getFotografo()+"\n"+
-                    aux.getPessoas()+"\n"+
-                    aux.getLocal()+"\n"+
-                    aux.getData()+"\n"+
-                    aux.getHora()+"\n");
+                TextAreaConsulta.setText( aux.toString() );
                 txtInforConsultar.setText("Mídia encontrada com sucesso.");
                 editConsultar.setText("");
             }else{
