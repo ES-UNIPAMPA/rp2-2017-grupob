@@ -113,6 +113,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
         btnRemoverMidia = new javax.swing.JButton();
         btnAtualizarMidias = new javax.swing.JButton();
         btnOrdenarMidia1 = new javax.swing.JButton();
+        jCheckBoxOrdenacao = new javax.swing.JCheckBox();
         jPaneConfArquivo = new javax.swing.JPanel();
         jPaneConfArquivo.setVisible(false);
         btnCarregarArquivo = new javax.swing.JLabel();
@@ -565,6 +566,11 @@ public class InterfaceFotos extends javax.swing.JFrame {
         });
         jPExibir.add(btnOrdenarMidia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 150, 40));
 
+        jCheckBoxOrdenacao.setBackground(new java.awt.Color(51, 51, 51));
+        jCheckBoxOrdenacao.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxOrdenacao.setText("Salvar arquivo ordenado por Título.");
+        jPExibir.add(jCheckBoxOrdenacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+
         jTabConteudos.addTab("Exibir", jPExibir);
 
         jPaneConfArquivo.setBackground(new java.awt.Color(51, 51, 51));
@@ -677,6 +683,9 @@ public class InterfaceFotos extends javax.swing.JFrame {
         String path = getPathFile();
         
         if (path!= null) {
+            if (jCheckBoxOrdenacao.isSelected()) {
+                gFotos.ordenar();
+            }
             if (gFotos.salvarArquivo(path)) {
                 JOptionPane.showMessageDialog(null, "Arquivo salvo com sucesso.");
             }else{
@@ -803,8 +812,9 @@ public class InterfaceFotos extends javax.swing.JFrame {
         
         for (Object midias : gFotos.exibir()) {
             Foto aux = (Foto) midias;
-            Object[] dadosTable = { aux.getTitulo(),      aux.getDescricao(),  aux.getPath(),
-                aux.getFotografo(), aux.getPessoas(), aux.getLocal(),
+            Object[] dadosTable = { 
+                aux.getTitulo(),    aux.getDescricao(),  aux.getPath(),
+                aux.getFotografo(), aux.getPessoas(),    aux.getLocal(),
                 aux.getData(),      aux.getHora()};
             modelTabMidias.addRow(dadosTable);    
         }
@@ -845,6 +855,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
         l.setForeground(new java.awt.Color(51,51,51));
     }// </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="Configurações">
     public String getPathFile(){
         String path = null;
         
@@ -889,6 +900,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
 
         txtInforCadastrar.setText("Todos os campos foram limpos.");
     }
+    // </editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="variaveis declaradas pela interface">
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -926,6 +938,7 @@ public class InterfaceFotos extends javax.swing.JFrame {
     private javax.swing.JLabel inforCadastrar;
     private javax.swing.JLabel inforConsultar;
     private javax.swing.JLabel inforExibir;
+    private javax.swing.JCheckBox jCheckBoxOrdenacao;
     private javax.swing.JPanel jPCadastrar;
     private javax.swing.JPanel jPExibir;
     private javax.swing.JPanel jPaneConfArquivo;

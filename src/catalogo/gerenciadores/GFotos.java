@@ -26,30 +26,31 @@ public class GFotos extends GerenciadorDeMidias {
     }
     
     //COMORTAMENTOS E MÉTODOS
+    
+    /**
+     * Método de ordenação INSERTIONSORT
+     * Recebe a list com todos as mídias de foto
+     * e assim faz a ordenação por título.
+     */
     @Override
-    public void ordenar() {
-        //Ordenação por InsertionSort
-        //List velha
-//        List<Midia> listaVelha = getMidias();
-//        
-//        //List Nova para receber a ordenação
-//        List<Midia> listNova = new ArrayList<>();
-//        
-//        for (Object object : listaVelha) {
-//            Midia aux = (Midia) object;
-//            listNova.add(aux);    
-//        }
+    public void ordenar() {          
         List<Midia> listNova = getMidias();
         int i, j;
         for (i = 1; i < listNova.size(); i++) {
             Midia aux = listNova.get(i);
-            for (j = i - 1; (j >= 0) && (listNova.get(j).getTitulo().compareToIgnoreCase(aux.getTitulo()) <= 0); j--) {
+            for (j = i - 1; (j >= 0) && (listNova.get(j).getTitulo().compareToIgnoreCase(aux.getTitulo()) > 0); j--) {
                 listNova.set(j+1, listNova.get(j));
             }
             listNova.set(j+1, aux);
         }
     }
 
+    /**
+     *
+     * @param path nome do caminho que será carregado que contém as Fotos
+     * @return Se o arquivo carregar com sucesso, retornará true
+     * caso contrário retornará false;
+     */
     @Override
     public boolean carregarArquivo(String path){
         
@@ -73,7 +74,7 @@ public class GFotos extends GerenciadorDeMidias {
             quantidadeMidias = Integer.parseInt(buffered.readLine());
             
             for (int i = 0; i < quantidadeMidias ; i++) {
-                titulo = buffered.readLine();
+                titulo    = buffered.readLine();
                 descricao = buffered.readLine();
                 pathMidia = buffered.readLine();
                 fotografo = buffered.readLine();

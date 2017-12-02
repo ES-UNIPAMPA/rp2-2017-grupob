@@ -81,9 +81,8 @@ public class InterfaceMusicas extends javax.swing.JFrame {
         editCaminho = new javax.swing.JTextField();
         editTitulo = new javax.swing.JTextField();
         editIdioma = new javax.swing.JTextField();
-        editAno = new javax.swing.JTextField();
         editGenero = new javax.swing.JTextField();
-        editFormatDuracao = new javax.swing.JFormattedTextField();
+        editFormatAno = new javax.swing.JFormattedTextField();
         btnLimparCampos = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         InforCadastrar = new javax.swing.JPanel();
@@ -93,6 +92,7 @@ public class InterfaceMusicas extends javax.swing.JFrame {
         txtInterpretes = new javax.swing.JLabel();
         txtAno = new javax.swing.JLabel();
         editAutores = new javax.swing.JTextField();
+        editFormatDuracao = new javax.swing.JFormattedTextField();
         jPanelConsultar = new javax.swing.JPanel();
         txtTituloPesquisa = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -112,6 +112,7 @@ public class InterfaceMusicas extends javax.swing.JFrame {
         btnRemoverMidia = new javax.swing.JButton();
         btnAtualizarMidias = new javax.swing.JButton();
         btnOrdenarMidia1 = new javax.swing.JButton();
+        jCheckBoxOrdenacao = new javax.swing.JCheckBox();
         jPaneConfArquivo = new javax.swing.JPanel();
         jPaneConfArquivo.setVisible(false);
         btnCarregarArquivo = new javax.swing.JLabel();
@@ -331,19 +332,16 @@ public class InterfaceMusicas extends javax.swing.JFrame {
         editIdioma.setBackground(new java.awt.Color(187, 187, 187));
         jPCadastrar.add(editIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 190, 40));
 
-        editAno.setBackground(new java.awt.Color(187, 187, 187));
-        jPCadastrar.add(editAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 190, 40));
-
         editGenero.setBackground(new java.awt.Color(187, 187, 187));
         jPCadastrar.add(editGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 190, 40));
 
-        editFormatDuracao.setBackground(new java.awt.Color(187, 187, 187));
+        editFormatAno.setBackground(new java.awt.Color(187, 187, 187));
         try {
-            editFormatDuracao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+            editFormatAno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jPCadastrar.add(editFormatDuracao, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 190, 40));
+        jPCadastrar.add(editFormatAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 190, 40));
 
         btnLimparCampos.setBackground(new java.awt.Color(33, 150, 243));
         btnLimparCampos.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -417,6 +415,14 @@ public class InterfaceMusicas extends javax.swing.JFrame {
 
         editAutores.setBackground(new java.awt.Color(187, 187, 187));
         jPCadastrar.add(editAutores, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 190, 40));
+
+        editFormatDuracao.setBackground(new java.awt.Color(187, 187, 187));
+        try {
+            editFormatDuracao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jPCadastrar.add(editFormatDuracao, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 190, 40));
 
         jTabConteudos.addTab("Cadastrar", jPCadastrar);
 
@@ -575,6 +581,11 @@ public class InterfaceMusicas extends javax.swing.JFrame {
         });
         jPExibir.add(btnOrdenarMidia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 150, 40));
 
+        jCheckBoxOrdenacao.setBackground(new java.awt.Color(51, 51, 51));
+        jCheckBoxOrdenacao.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxOrdenacao.setText("Salvar arquivo ordenado por título.");
+        jPExibir.add(jCheckBoxOrdenacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+
         jTabConteudos.addTab("Exibir", jPExibir);
 
         jPaneConfArquivo.setBackground(new java.awt.Color(51, 51, 51));
@@ -687,6 +698,9 @@ public class InterfaceMusicas extends javax.swing.JFrame {
         String path = getPathFile();
         
         if (path!= null) {
+            if (jCheckBoxOrdenacao.isSelected()) {
+                gMusicas.ordenar();
+            }
             if (gMusicas.salvarArquivo(path)) {
                 JOptionPane.showMessageDialog(null, "Arquivo salvo com sucesso.");
             }else{
@@ -722,15 +736,16 @@ public class InterfaceMusicas extends javax.swing.JFrame {
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
         if ((editCaminho.getText().trim().equals("")   || editIdioma.getText().trim().equals("")        || editAutores.getText().trim().equals("") ||
-            editDescricao.getText().trim().equals("")  || editFormatDuracao.getText().trim().equals("") || editGenero.getText().trim().equals("")  ||
-            editAno.getText().trim().equals("")        || editTitulo.getText().trim().equals("") )) {
+            editDescricao.getText().trim().equals("")  || editFormatAno.getText().trim().equals("") || editGenero.getText().trim().equals("")  ||
+            editFormatAno.getText().trim().equals("")        || editTitulo.getText().trim().equals("") )) {
 
             txtInforCadastrar.setText("Informe os campos corretamente.");
         }else{
 
-            if (gMusicas.cadastrar(new Musica(editTitulo.getText(), editDescricao.getText(), editCaminho.getText(),
-                editGenero.getText(), editIdioma.getText(), editAutores.getText(), editInterpretes.getText() , editFormatDuracao.getText(), Integer.parseInt(editAno.getText())))){
-                
+            if (gMusicas.cadastrar(new Musica(
+                editTitulo.getText(),      editDescricao.getText(),     editCaminho.getText(),
+                editGenero.getText(),      editIdioma.getText(),        editAutores.getText(), 
+                editInterpretes.getText(), editFormatDuracao.getText(), Integer.parseInt(editFormatAno.getText())))){
                 JOptionPane.showMessageDialog(null, "Mídia inserida com sucesso.");
                 
             }else{
@@ -809,9 +824,10 @@ public class InterfaceMusicas extends javax.swing.JFrame {
         
         for (Object midias : gMusicas.exibir()) {
             Musica aux = (Musica) midias;
-            Object[] dadosTable = { aux.getTitulo(), aux.getDescricao(), aux.getPath(),
-                aux.getGenero(), aux.getIdioma(), aux.getAutores(),
-                aux.getInterpretes(), aux.getDuracao() ,aux.getAno()};
+            Object[] dadosTable = { 
+                aux.getTitulo(),      aux.getDescricao(), aux.getPath(),
+                aux.getGenero(),      aux.getIdioma(),    aux.getAutores(),
+                aux.getInterpretes(), aux.getDuracao(),   aux.getAno()};
             modelTabMidias.addRow(dadosTable);    
         }
     }//GEN-LAST:event_btnExibirMousePressed
@@ -851,6 +867,7 @@ public class InterfaceMusicas extends javax.swing.JFrame {
         l.setForeground(new java.awt.Color(51,51,51));
     }// </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="configurações">                          
     public String getPathFile(){
         String path = null;
         
@@ -888,14 +905,15 @@ public class InterfaceMusicas extends javax.swing.JFrame {
         editDescricao.setText("");
         editGenero.setText("");
         editIdioma.setText("");
-        editAno.setText("");
-        editFormatDuracao.setText("");
+        editFormatAno.setText("");
+        editFormatAno.setText("");
         editInterpretes.setText("");
         editAutores.setText("");
         editConsultar.setText("");
 
         txtInforCadastrar.setText("Todos os campos foram limpos.");
     }
+    // </editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="variaveis declaradas pela interface">
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -920,11 +938,11 @@ public class InterfaceMusicas extends javax.swing.JFrame {
     private javax.swing.JButton btnRemoverMidia;
     private javax.swing.JLabel btnSalvarArquivo;
     private javax.swing.JLabel btnVoltar;
-    private javax.swing.JTextField editAno;
     private javax.swing.JTextField editAutores;
     private javax.swing.JTextField editCaminho;
     private javax.swing.JTextField editConsultar;
     private javax.swing.JTextField editDescricao;
+    private javax.swing.JFormattedTextField editFormatAno;
     private javax.swing.JFormattedTextField editFormatDuracao;
     private javax.swing.JTextField editGenero;
     private javax.swing.JTextField editIdioma;
@@ -934,6 +952,7 @@ public class InterfaceMusicas extends javax.swing.JFrame {
     private javax.swing.JLabel inforCadastrar;
     private javax.swing.JLabel inforConsultar;
     private javax.swing.JLabel inforExibir;
+    private javax.swing.JCheckBox jCheckBoxOrdenacao;
     private javax.swing.JPanel jPCadastrar;
     private javax.swing.JPanel jPExibir;
     private javax.swing.JPanel jPaneConfArquivo;
