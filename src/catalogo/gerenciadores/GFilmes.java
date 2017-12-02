@@ -1,6 +1,5 @@
 package catalogo.gerenciadores;
 
-import catalogo.Pessoa;
 import catalogo.midias.Filme;
 import catalogo.midias.Midia;
 import catalogo.midias.Podcast;
@@ -72,7 +71,7 @@ public class GFilmes extends GerenciadorDeMidias {
                 } catch (NumberFormatException e) {
                     ano = 0;
                 }
-                midia = new Filme(genero, idioma, Pessoa.getPessoa(diretor), Pessoa.getPessoas(atoresPrincipais), ano, titulo, descricao, pathDaMidia);
+                midia = new Filme(genero, idioma, diretor, atoresPrincipais, ano, titulo, descricao, pathDaMidia);
                 getMidias().add(midia);
                 buff.readLine();
             }

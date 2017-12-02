@@ -5,7 +5,6 @@
  */
 package interfacegrafica;
 
-import catalogo.Pessoa;
 import catalogo.gerenciadores.GFilmes;
 import catalogo.gerenciadores.IGerenciador;
 import catalogo.midias.Filme;
@@ -731,7 +730,7 @@ public class InterfaceFilmes extends javax.swing.JFrame {
         } else {
 
             Filme novo = new Filme(editGenero.getText(), editIdioma.getText(),
-                    Pessoa.getPessoa(editDiretor.getText()), Pessoa.getPessoas(editAtores.getText()), Integer.parseInt(editAno.getText()),
+                    editDiretor.getText(), editAtores.getText(), Integer.parseInt(editAno.getText()),
                     editTitulo.getText(), editDescricao.getText(), editCaminho.getText());
 
             if (gFilmes.cadastrar(novo)) {
@@ -777,8 +776,8 @@ public class InterfaceFilmes extends javax.swing.JFrame {
             Midia midiaNova = new Filme(
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 3).toString(),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 5).toString(),
-                    Pessoa.getPessoa(modelTabMidias.getValueAt(jTable.getSelectedRow(), 6).toString()),
-                    Pessoa.getPessoas(modelTabMidias.getValueAt(jTable.getSelectedRow(), 7).toString()),
+                    modelTabMidias.getValueAt(jTable.getSelectedRow(), 6).toString(),
+                    modelTabMidias.getValueAt(jTable.getSelectedRow(), 7).toString(),
                     Integer.valueOf(modelTabMidias.getValueAt(jTable.getSelectedRow(), 4).toString()),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 0).toString(),
                     modelTabMidias.getValueAt(jTable.getSelectedRow(), 1).toString(),

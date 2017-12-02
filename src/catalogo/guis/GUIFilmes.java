@@ -1,6 +1,5 @@
 package catalogo.guis;
 
-import catalogo.Pessoa;
 import catalogo.gerenciadores.GFilmes;
 import catalogo.gerenciadores.IGerenciador;
 import catalogo.midias.Filme;
@@ -33,7 +32,7 @@ public class GUIFilmes extends GUI {
         System.out.println("Digite o idioma do Filme");
         String idioma = es.nextString();
 
-        f = new Filme(genero, idioma, Pessoa.getPessoa(diretor), Pessoa.getPessoas(atoresPrincipais), ano, titulo, descricao, path);
+        f = new Filme(genero, idioma, diretor, atoresPrincipais, ano, titulo, descricao, path);
         if (gerenciador.cadastrar(f)) {
             System.out.println("Filme cadastrado com sucesso");
             salvar();
@@ -115,17 +114,15 @@ public class GUIFilmes extends GUI {
                 genero = velho.getGenero();
             }
             System.out.println("Digite os novos atores do Filme, separado por ponto e virgula[;] [tecle ENTER sem digitar nada para pular]");
-            String atoresP = es.nextString();
-            Pessoa[] atoresPrincipais = Pessoa.getPessoas(atoresP);
+            String atoresPrincipais =es.nextString();
             if (atoresPrincipais.equals("")) {
                 atoresPrincipais = velho.getAtoresPrincipais();
             }
             System.out.println("Digite o novo diretor do Filme [tecle ENTER sem digitar nada para pular]");
             String diretor = es.nextString();
-            Pessoa diretorP = Pessoa.getPessoa(diretor);
            
             if (diretor.equals("")) {
-                diretorP = velho.getDiretor();
+                diretor = velho.getDiretor();
             }
             System.out.println("Digite o novo idioma do Filme [tecle ENTER sem digitar nada para pular]");
             String idioma = es.nextString();
@@ -133,7 +130,7 @@ public class GUIFilmes extends GUI {
                 idioma = velho.getIdioma();
             }
 
-            novo = new Filme(genero, idioma, diretorP, atoresPrincipais, ano, titulo, descricao, path);
+            novo = new Filme(genero, idioma, diretor, atoresPrincipais, ano, titulo, descricao, path);
             if (gerenciador.editar(velho, novo)) {
                 System.out.println("Filme editado com sucesso");
                 salvar();
