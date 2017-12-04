@@ -1,6 +1,5 @@
 package catalogo.gerenciadores;
 
-import catalogo.midias.Filme;
 import catalogo.midias.Midia;
 import catalogo.midias.Podcast;
 import java.io.BufferedReader;
@@ -11,8 +10,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class GPodcasts extends GerenciadorDeMidias {
 

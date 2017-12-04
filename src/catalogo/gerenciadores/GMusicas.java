@@ -3,16 +3,10 @@ package catalogo.gerenciadores;
 import catalogo.midias.Midia;
 import catalogo.midias.Musica;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -43,12 +37,6 @@ public class GMusicas extends GerenciadorDeMidias {
         }
     }
 
-    /**
-     *
-     * @param path nome do caminho que será carregado com listas de Músicas
-     * @return Se o arquivo carregar com sucesso, retornará true
-     * caso contrário retornará false;
-     */
     @Override
     public boolean carregarArquivo(String path) {
         final Logger logger = Logger.getLogger(GMusicas.class.getName());

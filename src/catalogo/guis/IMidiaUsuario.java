@@ -2,20 +2,44 @@ package catalogo.guis;
 
 public interface IMidiaUsuario {
 
-	public abstract void cadastro();
+    /**
+     * Metodo para cadastrar alguma midia
+     */
+    public abstract void cadastro();
 
-	public abstract void exclusao();
+    /**
+     * Metodo para excluir alguma midia
+     */
+    public abstract void exclusao();
 
-	public abstract void consulta();
+    /**
+     * metodo para consultar alguma midia
+     */
+    public abstract void consulta();
 
-	public abstract void exibirDadosTodasMidias();
+    /**
+     * metodo para exibir todas as midias
+     */
+    public abstract void exibirDadosTodasMidias();
 
-	public abstract void editar();
-        
-	public abstract void ordenar();
+    /**
+     * metodo para editar alguma midia
+     */
+    public abstract void editar();
 
-	public abstract void salvar();
+    /**
+     * metodo para ordenar as midias
+     */
+    public abstract void ordenar();
 
-	public abstract void carregar();
+    /**
+     * metodo para salvar as midias
+     */
+    public abstract void salvar();
+
+    /**
+     * metodo para carregar as midias
+     */
+    public abstract void carregar();
 
 }

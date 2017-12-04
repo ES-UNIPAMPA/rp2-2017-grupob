@@ -11,7 +11,10 @@ public abstract class Midia {
         this.descricao = descricao;
         this.path = path;
     }
-
+    /**
+     * Metodo que retorna uma string para ser salva em um arquivo de texto
+     * @return uma string com os dados da midia
+     */
     public String toFile() {
         String retorno = "";
         retorno += titulo + "\r\n";

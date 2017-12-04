@@ -19,12 +19,6 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
         this.midias = midias;
     }
 
-    /**
-     * Cadastrar as midias que o usuário informa na interface ou console.
-     * @param midia Contém todas as informações passadas pelo usuário e
-     * essa mídia será inserida na coleção.
-     * @return true se conseguir cadastrar uma mídia.
-     */
     @Override
     public boolean cadastrar(Midia midia) {
         if (midia != null) {
@@ -32,11 +26,7 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
         }
         return false;
     }
-    /**
-     * removerá alguma midia escolhida pelo usuário, que estiver na coleção
-     * @param path caminho do arquivo que tem a midia a ser removida.
-     * @return 
-     */
+
     @Override
     public boolean remover(String path) {
         for (Midia midia : midias) {
@@ -48,11 +38,6 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
         return false;
     }
 
-    /**
-     * Consultará uma mídia pelo usuário.
-     * @param titulo informado pelo usuário, para fazer a pesquisa.
-     * @return retorna a Mídia que o usuário pesquisou caso seja encontrada.
-     */
     @Override
     public Midia consultar(String titulo) {
         Midia aux;
@@ -66,26 +51,16 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
         return null;
     }
 
-    /**
-     * Exibe a coleção com todas as mídias inseridas.
-     * @return A coleção completa.
-     */
     @Override
     public List<Midia> exibir() {
         return midias;
     }
 
-    /**
-     * Edita uma determinada mídia, informada pelo usuário.
-     * @param velho Mídia antiga para ser substituida.
-     * @param midia Mídia nova que será inclusa na coleção.
-     * @return 
-     */
     @Override
     public boolean editar(Midia velho, Midia midia) {
         for (int i = 0; i < midias.size(); i++) {
             if (velho == midias.get(i)) {
-                midias.set(i, midia);             
+                midias.set(i, midia);
                 return true;
             }
         }
@@ -94,18 +69,13 @@ public abstract class GerenciadorDeMidias implements IGerenciador {
 
     /**
      * Recupera a coleção.
-     * @return 
+     *
+     * @return
      */
     protected List getMidias() {
         return midias;
     }
 
-    /**
-     * Método para salvar o arquivo no sistema com todas informações
-     * recuperadas da coleção.
-     * @param path caminho em que será salvo as mídias.
-     * @return 
-     */
     @Override
     public boolean salvarArquivo(String path) {
 
